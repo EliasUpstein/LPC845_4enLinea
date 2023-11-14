@@ -25,7 +25,7 @@ void MatrizLed(int leds)
 {
 	nleds = leds;
 	matriz = new (Led_WS2812B[nleds]);
-	out_matriz.ClrPin();
+	out_matriz.SetPin();
 }
 
 void setLed(uint32_t led, Led_WS2812B color)
@@ -98,7 +98,7 @@ void show(void)
 	//Configurar valor para el primer bit (MSB) (tiempo 0, primer interrupción)
 	(((matriz[0].r >> 7) & 0x1) == 0) ? setMatch0CTimer(TIEMPO_CORTO) : setMatch0CTimer(TIEMPO_LARGO);
 
-	out_matriz.SetPin();		//Activar salida
+	out_matriz.ClrPin();		//Activar salida
 
 	enableCTimer(true);			//Habilitar interrupción del CTIMER
 }
@@ -180,7 +180,7 @@ void MdE_Ctimer_Matriz (void)
     	//Activación de interrupciones (previas) y apagado de salida
     	enableCTimer(false);
     	pauseInterrupt(false);
-    	out_matriz.ClrPin();
+    	out_matriz.SetPin();
 
     	estado = NIVEL_ALTO;        //Seteo para el próximo show (las variables nbit, ncolor y nled ya deberían estar en 0)
     	break;
@@ -223,9 +223,10 @@ void pauseInterrupt(bool flag)
 
 void enableCTimer(bool flag)
 {
+	GPIOtoMATCH0(flag);							//Pasa de GPIO1_0 a T0_MATCH0 o viceversa
 	if(flag)
 	{
-		NVIC->ISER[0] |= ISE_CT32B0;			// Habilita interrupción de CTIMER0
+		NVIC->ISER[0] |= ISE_CT32B0;										// Habilita interrupción de CTIMER0
 		CTIMER0->TCR |= CTIMER_TCR_CEN_MASK;
 	}
 	else
@@ -233,5 +234,35 @@ void enableCTimer(bool flag)
 		NVIC->ICER[0] |= ISE_CT32B0;			// Deshabilita interrupción de CTIMER0	//Requiere reinicio la deshabilitación (TCR -> CRST)?
 		CTIMER0->TCR &= !CTIMER_TCR_CEN_MASK;
 	}
-	//CTIMER0->TCR |= CTIMER_TCR_CEN(flag);		// Habilita/Deshabilita (según el flag) contador de timer
 }
+
+void GPIOtoMATCH0(bool flag)
+{
+	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Habilita clock de SWM
+
+	if(flag)
+		SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_P1_0);		// Asigna MATCH0 a P1.0
+	else
+		SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_Reset);		// Resetea el valor de Match0 (Asigna GPIO a P1.0)
+
+	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Deshabilita clock de SWM
+}
+
+
+//void enableCTimer(bool flag)
+//{
+//	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Habilita clock de SWM
+//	if(flag)
+//	{
+//		SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_P1_0);		// Asigna MATCH0 a P1.0
+//		NVIC->ISER[0] |= ISE_CT32B0;										// Habilita interrupción de CTIMER0
+//		CTIMER0->TCR |= CTIMER_TCR_CEN_MASK;
+//	}
+//	else
+//	{
+//		SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_Reset);		// Resetea el valor de Match0 (Asigna GPIO a P1.0)
+//		NVIC->ICER[0] |= ISE_CT32B0;			// Deshabilita interrupción de CTIMER0	//Requiere reinicio la deshabilitación (TCR -> CRST)?
+//		CTIMER0->TCR &= !CTIMER_TCR_CEN_MASK;
+//	}
+//	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Deshabilita clock de SWM
+//}

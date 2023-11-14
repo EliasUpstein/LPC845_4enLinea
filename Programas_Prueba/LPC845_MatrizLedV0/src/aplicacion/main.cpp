@@ -35,7 +35,7 @@ int  main(void)
 
 			if(dato == 115)					// "s", valor aleatorio para probar la transmisión
 			{
-				uart0->Transmit("OK");		//Confirma recepción
+				uart0->Transmit("OK\r\n");		//Confirma recepción
 
 				show();						//Inicia la transmisión
 			}

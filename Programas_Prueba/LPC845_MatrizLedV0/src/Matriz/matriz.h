@@ -28,11 +28,13 @@ void setMatch0CTimer(uint32_t valor);		//(debería ir a parar a la carpeta CTime
 void pauseInterrupt(bool flag);
 void enableCTimer(bool flag);
 
+void GPIOtoMATCH0(bool flag);
+
 #define NIVEL_ALTO 1
 #define NIVEL_BAJO 0
 #define FINALIZAR_CTIMER 2
 
-#define TIEMPO_LARGO 60000000
+#define TIEMPO_LARGO 30000000
 #define TIEMPO_CORTO 15000000
 
 #endif

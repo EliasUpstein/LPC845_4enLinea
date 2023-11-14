@@ -15,13 +15,13 @@
 //Sólo configura, no le da arranque (se hace desde el show de matriz)
 void inicializarCtimer(void){
 	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_CTIMER_MASK;		// Habilita clock de CTIMER
-	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;			// Habilita clock de SWM
-	SYSCON->PRESETCTRL1			|= SYSCON_PRESETCTRL0_CTIMER_RST_N_MASK;	// Limpia Reset del periferico
-	SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_P1_0);			// Asigna MATCH0 a P1.0
+//	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;			// Habilita clock de SWM (lo pasé a enable CTimer)
+	SYSCON->PRESETCTRL0			|= SYSCON_PRESETCTRL0_CTIMER_RST_N_MASK;	// Limpia Reset del periferico
+//	SWM_SetMovablePinSelect(kSWM_T0_MAT_CHN0, kSWM_PortPin_P1_0);			// Asigna MATCH0 a P1.0 (lo pasé a enable CTimer)
 	CTIMER0->PR = 0;														// Preescaler de timer 0, 30MHz
 	CTIMER0->MCR |= CTIMER_MCR_MR0R_MASK | CTIMER_MCR_MR0I_MASK;			// Reset e Interrupción del timer ante evento de match0
 	CTIMER0->EMR = CTIMER_EMR_EMC0(0x03);									// Toggle pin on match
-	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;			// Deshabilita clock de SWM
+//	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;			// Deshabilita clock de SWM (lo pasé a enable CTimer)
 }
 
 
