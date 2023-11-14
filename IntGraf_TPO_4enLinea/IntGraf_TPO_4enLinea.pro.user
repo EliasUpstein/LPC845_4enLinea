@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.2, 2023-11-08T23:51:02. -->
+<!-- Written by QtCreator 9.0.2, 2023-11-14T01:46:00. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -236,8 +236,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Asus/Desktop/Facultad/Nivel 2/Info 2/TPO/IntGraf_TPO_4enLinea/IntGraf_TPO_4enLinea.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Asus/Desktop/Facultad/Nivel 2/Info 2/TPO/IntGraf_TPO_4enLinea/IntGraf_TPO_4enLinea.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">IntGraf_TPO_4enLinea2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Asus/Desktop/Facultad/Nivel 2/Info 2/TPO/Git/LPC845_4enLinea/IntGraf_TPO_4enLinea/IntGraf_TPO_4enLinea.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Asus/Desktop/Facultad/Nivel 2/Info 2/TPO/Git/LPC845_4enLinea/IntGraf_TPO_4enLinea/IntGraf_TPO_4enLinea.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

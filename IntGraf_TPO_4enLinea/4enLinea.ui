@@ -111,7 +111,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Contador Vicotrias:</string>
+      <string>Contador Victorias:</string>
      </property>
     </widget>
     <widget class="QLCDNumber" name="Cont_Jug_1">
