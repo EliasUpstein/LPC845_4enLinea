@@ -7,7 +7,7 @@
 */
 #include "inicializarInfotronic.h"
 
-#define NLEDS 3		//Para hacer pruebas visibles
+#define NLEDS 1		//Para hacer pruebas visibles
 
 int  main(void)
 {
@@ -17,7 +17,7 @@ int  main(void)
 	
 	//Creo un led auxiliar en un color determinado
 	Led_WS2812B led_aux;
-	led_aux.r = 0;
+	led_aux.r = 255;
 	led_aux.g = 100;
 	led_aux.b = 0;
 
@@ -38,6 +38,17 @@ int  main(void)
 				uart0->Transmit("OK");		//Confirma recepción
 
 				show();						//Inicia la transmisión
+			}
+
+			else if(dato == 97)				// "a", valor aleatorio para probar la transmisión
+			{
+				uart0->Transmit("APAGADO\r\n");		//Confirma recepción
+				out_matriz.ClrPin();
+			}
+			else if(dato == 112)			// "p", valor aleatorio para probar la transmisión
+			{
+				uart0->Transmit("PRENDIDO\r\n");	//Confirma recepción
+				out_matriz.SetPin();
 			}
 		}
 	}

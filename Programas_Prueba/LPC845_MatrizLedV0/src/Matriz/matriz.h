@@ -32,7 +32,7 @@ void enableCTimer(bool flag);
 #define NIVEL_BAJO 0
 #define FINALIZAR_CTIMER 2
 
-#define TIEMPO_LARGO 24
-#define TIEMPO_CORTO 15
+#define TIEMPO_LARGO 60000000
+#define TIEMPO_CORTO 15000000
 
 #endif

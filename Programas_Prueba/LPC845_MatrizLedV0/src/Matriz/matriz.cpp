@@ -1,7 +1,7 @@
 #include "matriz.h"
 
 //Configuración del pin de salida
-gpio out_matriz( gpio::port1 , 0 , gpio::pushpull ,  gpio::output , gpio::high );
+gpio out_matriz( gpio::port1 , 0 , gpio::pushpull ,  gpio::high , gpio::output );
 
 // Varibles (atributos del objeto)
 uint32_t nleds;
@@ -25,6 +25,7 @@ void MatrizLed(int leds)
 {
 	nleds = leds;
 	matriz = new (Led_WS2812B[nleds]);
+	out_matriz.ClrPin();
 }
 
 void setLed(uint32_t led, Led_WS2812B color)
@@ -94,8 +95,8 @@ void show(void)
 {
 	pauseInterrupt(true);		//Detener las interrupciones ajenas a la matriz (se reactivan en la rutina de interrupcion cuando ingresa por ultima vez)
 
-	//Configurar valor para el primer bit (tiempo 0, primer interrupción)
-	(((matriz[0].r >> 0) & 0x1) == 0) ? setMatch0CTimer(TIEMPO_CORTO) : setMatch0CTimer(TIEMPO_LARGO);
+	//Configurar valor para el primer bit (MSB) (tiempo 0, primer interrupción)
+	(((matriz[0].r >> 7) & 0x1) == 0) ? setMatch0CTimer(TIEMPO_CORTO) : setMatch0CTimer(TIEMPO_LARGO);
 
 	out_matriz.SetPin();		//Activar salida
 
@@ -131,7 +132,8 @@ void MdE_Ctimer_Matriz (void)
 	else 	//error
 		bit_actual_bajo = false;
 
-	bit_actual_bajo = (((bit_actual_bajo >> nbit) & 0x1) == 0);
+//	bit_actual_bajo = (((bit_actual_bajo >> nbit) & 0x1) == 0);	//Desplazamiento de derecha a izquierda (LSB to MSB)
+    bit_actual_bajo = ((bit_actual_bajo & (0x1 << (7 - nbit))) == 0);	//Desplazamiento de izquierda a derecha (MSB to LSB)
 
     switch (estado)
     {
@@ -182,8 +184,14 @@ void MdE_Ctimer_Matriz (void)
 
     	estado = NIVEL_ALTO;        //Seteo para el próximo show (las variables nbit, ncolor y nled ya deberían estar en 0)
     	break;
-    default:
-        //Evaluar qué hacer en caso de error
+    default:						//Reseteo de todas las variales y frena interrupciones
+    	enableCTimer(false);
+		pauseInterrupt(false);
+
+    	nbit = 0;
+    	ncolor = 0;
+    	nled = 0;
+    	estado = NIVEL_ALTO;
         break;
     }
 }
@@ -216,9 +224,14 @@ void pauseInterrupt(bool flag)
 void enableCTimer(bool flag)
 {
 	if(flag)
+	{
 		NVIC->ISER[0] |= ISE_CT32B0;			// Habilita interrupción de CTIMER0
+		CTIMER0->TCR |= CTIMER_TCR_CEN_MASK;
+	}
 	else
+	{
 		NVIC->ICER[0] |= ISE_CT32B0;			// Deshabilita interrupción de CTIMER0	//Requiere reinicio la deshabilitación (TCR -> CRST)?
-
-	CTIMER0->TCR |= CTIMER_TCR_CEN(flag);		// Habilita/Deshabilita (según el flag) contador de timer
+		CTIMER0->TCR &= !CTIMER_TCR_CEN_MASK;
+	}
+	//CTIMER0->TCR |= CTIMER_TCR_CEN(flag);		// Habilita/Deshabilita (según el flag) contador de timer
 }
