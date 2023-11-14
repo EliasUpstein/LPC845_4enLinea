@@ -14,7 +14,7 @@ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV0\src\02-gpio/gpio.h
 ../src/Matriz/matriz.cpp:117:6:void MdE_Ctimer_Matriz()	8	static
 ../src/Matriz/matriz.cpp:203:6:void setMatch0CTimer(uint32_t)	16	static
 ../src/Matriz/matriz.cpp:209:6:void pauseInterrupt(bool)	16	static
-../src/Matriz/matriz.cpp:242:6:void enableCTimer(bool)	16	static
-../src/Matriz/matriz.cpp:257:6:void GPIOtoMATCH0(bool)	16	static
-../src/Matriz/matriz.cpp:267:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../src/Matriz/matriz.cpp:267:1:cpp)	8	static
+../src/Matriz/matriz.cpp:224:6:void enableCTimer(bool)	16	static
+../src/Matriz/matriz.cpp:239:6:void GPIOtoMATCH0(bool)	16	static
+../src/Matriz/matriz.cpp:249:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../src/Matriz/matriz.cpp:249:1:cpp)	8	static
