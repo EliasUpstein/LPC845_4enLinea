@@ -140,10 +140,10 @@ void MainWindow::serial_read()
 {
     if(serial->isReadable()){
         QByteArray data = serial->readAll();
-        if(data.toInt() == 1){
-            ui->Cont_Jug_1->display(ui->Cont_Jug_1->digitCount()+1);
-        }else if(data.toInt() == 2){
-            ui->Cont_Jug_2->display(ui->Cont_Jug_2->digitCount()+1);
+        if(data.toStdString() == "1"){
+            ui->Cont_Jug_1->display(ui->Cont_Jug_1->intValue()+1);
+        }else if(data.toStdString() == "2"){
+            ui->Cont_Jug_2->display(ui->Cont_Jug_2->intValue()+1);
         }else{
             ui->Cont_Jug_1->display(0);
             ui->Cont_Jug_2->display(0);
