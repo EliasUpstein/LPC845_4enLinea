@@ -10,7 +10,7 @@ typedef struct
     //Sobrecarga del casteo a uint32_t
     operator uint32_t() const
 	{
-		return (r << 16) | (g << 8) | (b);
+    	 return ((uint32_t)r << 16) | ((uint32_t)g << 8) | b;
 	}
 } Led_WS2812B;
 

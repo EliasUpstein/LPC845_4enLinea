@@ -28,7 +28,7 @@ void show(void);
 #define NIVEL_BAJO 0
 
 //Mínima temporización alcanzada
-#define TIEMPO_LARGO 10
-#define TIEMPO_CORTO 5
+#define TIEMPO_LARGO 24
+#define TIEMPO_CORTO 15
 
 #endif

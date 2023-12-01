@@ -7004,7 +7004,7 @@ LOAD linker stubs
  .debug_macro   0x00005e60      0x1ed ./src/03-callback/callback.o
  .debug_macro   0x0000604d       0x4b ./src/02-gpio/gpio.o
 
-.debug_line     0x00000000     0x8135
+.debug_line     0x00000000     0x8132
  .debug_line    0x00000000      0x78f ./src/firmware/Systick/systick.o
  .debug_line    0x0000078f      0xd44 ./src/firmware/SWM/swm.o
  .debug_line    0x000014d3      0xca3 ./src/firmware/CTimer/ctimer.o
@@ -7016,56 +7016,56 @@ LOAD linker stubs
  .debug_line    0x00002c02       0xe2 ./src/firmware/mtb.o
  .debug_line    0x00002ce4     0x10ff ./src/aplicacion/inicializarInfotronic.o
  .debug_line    0x00003de3      0xd10 ./src/aplicacion/main.o
- .debug_line    0x00004af3      0xff3 ./src/Matriz/matriz.o
- .debug_line    0x00005ae6       0xf8 ./src/12-USART/ComunicacionAsincronica.o
- .debug_line    0x00005bde      0x57b ./src/12-USART/uart.o
- .debug_line    0x00006159      0xd6c ./src/05-SalidasDigitales/digital_outputs.o
- .debug_line    0x00006ec5      0xad9 ./src/03-callback/callback.o
- .debug_line    0x0000799e      0x504 ./src/02-gpio/gpio.o
- .debug_line    0x00007ea2      0x1e1 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
- .debug_line    0x00008083       0x51 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(cr_abort.o)
- .debug_line    0x000080d4       0x61 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
+ .debug_line    0x00004af3      0xff0 ./src/Matriz/matriz.o
+ .debug_line    0x00005ae3       0xf8 ./src/12-USART/ComunicacionAsincronica.o
+ .debug_line    0x00005bdb      0x57b ./src/12-USART/uart.o
+ .debug_line    0x00006156      0xd6c ./src/05-SalidasDigitales/digital_outputs.o
+ .debug_line    0x00006ec2      0xad9 ./src/03-callback/callback.o
+ .debug_line    0x0000799b      0x504 ./src/02-gpio/gpio.o
+ .debug_line    0x00007e9f      0x1e1 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
+ .debug_line    0x00008080       0x51 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(cr_abort.o)
+ .debug_line    0x000080d1       0x61 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
 
-.debug_str      0x00000000    0x1e7a3
+.debug_str      0x00000000    0x1e7a5
  .debug_str     0x00000000    0x132bc ./src/firmware/Systick/systick.o
                               0x133a8 (size before relaxing)
- .debug_str     0x000132bc     0x2348 ./src/firmware/SWM/swm.o
-                              0x15643 (size before relaxing)
- .debug_str     0x00015604      0x349 ./src/firmware/CTimer/ctimer.o
-                              0x14f8c (size before relaxing)
- .debug_str     0x0001594d       0x33 ./src/firmware/aeabi_romdiv_patch.o
+ .debug_str     0x000132bc     0x2349 ./src/firmware/SWM/swm.o
+                              0x15644 (size before relaxing)
+ .debug_str     0x00015605      0x349 ./src/firmware/CTimer/ctimer.o
+                              0x14f8d (size before relaxing)
+ .debug_str     0x0001594e       0x33 ./src/firmware/aeabi_romdiv_patch.o
                                  0x79 (size before relaxing)
- .debug_str     0x00015980     0x3525 ./src/firmware/cr_cpp_config.o
+ .debug_str     0x00015981     0x3525 ./src/firmware/cr_cpp_config.o
                                0x8dd7 (size before relaxing)
- .debug_str     0x00018ea5      0x224 ./src/firmware/cr_startup_lpc84x.o
+ .debug_str     0x00018ea6      0x224 ./src/firmware/cr_startup_lpc84x.o
                                0x3636 (size before relaxing)
- .debug_str     0x000190c9      0x2ce ./src/firmware/crp.o
+ .debug_str     0x000190ca      0x2ce ./src/firmware/crp.o
                                0x2e61 (size before relaxing)
- .debug_str     0x00019397       0x56 ./src/firmware/dr_pll.o
+ .debug_str     0x00019398       0x56 ./src/firmware/dr_pll.o
                               0x10890 (size before relaxing)
- .debug_str     0x000193ed      0x522 ./src/firmware/mtb.o
+ .debug_str     0x000193ee      0x522 ./src/firmware/mtb.o
                                0x3296 (size before relaxing)
- .debug_str     0x0001990f     0x3bf5 ./src/aplicacion/inicializarInfotronic.o
-                              0x18a72 (size before relaxing)
- .debug_str     0x0001d504       0x8c ./src/aplicacion/main.o
-                              0x14d2c (size before relaxing)
- .debug_str     0x0001d590      0x1d1 ./src/Matriz/matriz.o
-                              0x152cc (size before relaxing)
- .debug_str     0x0001d761      0x2ac ./src/12-USART/ComunicacionAsincronica.o
+ .debug_str     0x00019910     0x3bf5 ./src/aplicacion/inicializarInfotronic.o
+                              0x18a73 (size before relaxing)
+ .debug_str     0x0001d505       0x8d ./src/aplicacion/main.o
+                              0x14d2e (size before relaxing)
+ .debug_str     0x0001d592      0x1d1 ./src/Matriz/matriz.o
+                              0x152cd (size before relaxing)
+ .debug_str     0x0001d763      0x2ac ./src/12-USART/ComunicacionAsincronica.o
                                0x3777 (size before relaxing)
- .debug_str     0x0001da0d      0x278 ./src/12-USART/uart.o
+ .debug_str     0x0001da0f      0x278 ./src/12-USART/uart.o
                               0x1075a (size before relaxing)
- .debug_str     0x0001dc85      0x7d7 ./src/05-SalidasDigitales/digital_outputs.o
+ .debug_str     0x0001dc87      0x7d7 ./src/05-SalidasDigitales/digital_outputs.o
                               0x17277 (size before relaxing)
- .debug_str     0x0001e45c       0x77 ./src/03-callback/callback.o
+ .debug_str     0x0001e45e       0x77 ./src/03-callback/callback.o
                               0x16d2a (size before relaxing)
- .debug_str     0x0001e4d3      0x115 ./src/02-gpio/gpio.o
+ .debug_str     0x0001e4d5      0x115 ./src/02-gpio/gpio.o
                               0x10124 (size before relaxing)
- .debug_str     0x0001e5e8      0x184 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
+ .debug_str     0x0001e5ea      0x184 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
                                 0x220 (size before relaxing)
- .debug_str     0x0001e76c       0x12 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(cr_abort.o)
+ .debug_str     0x0001e76e       0x12 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(cr_abort.o)
                                 0x126 (size before relaxing)
- .debug_str     0x0001e77e       0x25 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
+ .debug_str     0x0001e780       0x25 e:/programas/mcuxpressoide_11.8.0_1165/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047/tools/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
                                 0x16b (size before relaxing)
 
 .comment        0x00000000       0x45
