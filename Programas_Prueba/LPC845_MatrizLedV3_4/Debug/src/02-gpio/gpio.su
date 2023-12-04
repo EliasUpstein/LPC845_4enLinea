@@ -1,0 +1,18 @@
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\in/inputs.h:19:3:inputs::inputs()	16	static
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\in/inputs.h:23:11:inputs::~inputs()	16	static
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\in/inputs.h:23:11:virtual inputs::~inputs()	16	static
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\out/outputs.h:44:3:outputs::outputs()	16	static
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\out/outputs.h:50:11:outputs::~outputs()	16	static
+C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\01-pin\out/outputs.h:50:11:virtual outputs::~outputs()	16	static
+../src/02-gpio/gpio.cpp:45:1:gpio::gpio(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+../src/02-gpio/gpio.cpp:77:9:virtual uint8_t gpio::SetPin()	16	static
+../src/02-gpio/gpio.cpp:90:9:virtual uint8_t gpio::ClrPin()	16	static
+../src/02-gpio/gpio.cpp:102:9:virtual uint8_t gpio::SetTogglePin()	24	static
+../src/02-gpio/gpio.cpp:110:9:virtual uint8_t gpio::SetDirOutputs()	16	static
+../src/02-gpio/gpio.cpp:121:9:virtual uint8_t gpio::SetDirInputs()	16	static
+../src/02-gpio/gpio.cpp:132:9:uint8_t gpio::SetToggleDir()	24	static
+../src/02-gpio/gpio.cpp:140:9:virtual uint8_t gpio::GetPin() const	16	static
+../src/02-gpio/gpio.cpp:147:9:virtual uint8_t gpio::SetPinMode_OUT()	24	static
+../src/02-gpio/gpio.cpp:160:9:virtual uint8_t gpio::SetPinMode_IN()	24	static
+../src/02-gpio/gpio.h:42:7:gpio::~gpio()	16	static
+../src/02-gpio/gpio.h:42:7:virtual gpio::~gpio()	16	static
