@@ -12,5 +12,6 @@ C:\Users\elias\Desktop\Xpresso\LPC845_MatrizLedV3_4\src\02-gpio/gpio.h:42:7:virt
 ../src/Matriz/matriz.cpp:66:6:void clear()	16	static
 ../src/Matriz/matriz.cpp:78:13:Led_WS2812B Color(uint8_t, uint8_t, uint8_t)	32	static
 ../src/Matriz/matriz.cpp:115:6:void show()	16	static
-../src/Matriz/matriz.cpp:153:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../src/Matriz/matriz.cpp:153:1:cpp)	8	static
+../src/Matriz/matriz.cpp:138:6:void send24Bits(uint32_t)	16	static
+../src/Matriz/matriz.cpp:453:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../src/Matriz/matriz.cpp:453:1:cpp)	8	static

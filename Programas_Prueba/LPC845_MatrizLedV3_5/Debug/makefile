@@ -65,7 +65,7 @@ main-build: LPC845_MatrizLedV3_5.axf
 LPC845_MatrizLedV3_5.axf: $(OBJS) $(USER_OBJS) makefile $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU C++ Linker'
-	arm-none-eabi-c++ -nostdlib -Xlinker -Map="LPC845_MatrizLedV3_5.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T "LPC845_MatrizLedV3_5_Debug.ld" -o "LPC845_MatrizLedV3_5.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-c++ -nostdlib -Xlinker -Map="LPC845_MatrizLedV3_5.map" -Xlinker --cref -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m0 -mthumb -T LPC845_MatrizLedV3_5_Debug.ld -o "LPC845_MatrizLedV3_5.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

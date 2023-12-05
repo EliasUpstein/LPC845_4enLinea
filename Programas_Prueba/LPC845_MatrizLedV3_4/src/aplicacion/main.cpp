@@ -17,9 +17,9 @@ int  main(void)
 	
 	//Creo un led auxiliar en un color determinado
 	Led_WS2812B led_aux;
-	led_aux.r = 0;
-	led_aux.g = 100;
-	led_aux.b = 0;
+	led_aux.r = 255;
+	led_aux.g = 0;
+	led_aux.b = 100;
 
 	//Inicializo la matriz con la cantidad de leds y guardo en cada uno el color led_aux
 	MatrizLed(NLEDS);

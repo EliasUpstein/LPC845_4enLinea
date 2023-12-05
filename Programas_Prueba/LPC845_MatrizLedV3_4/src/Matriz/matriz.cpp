@@ -126,28 +126,328 @@ void show(void)
 	//Bucle para leds
 	for(uint8_t nled=0; nled<nleds; nled++)
 	{
-		//Bucle para bit
-		for(uint8_t nbit=0; nbit<24; nbit++)
-		{
-			GPIO->SET[0] = 1 << 29 ;	//Encendido del pin
-
-			//Si el bit es 1 => T1H = 800ns + T1L = 450ns
-			if(matriz[nled] & (0x1 << (23 - nbit)))
-			{
-				DELAY_ASM
-				GPIO->CLR[0] = 1 << 29 ;
-			}
-			//Si el bit es 0 => TOH = 400ns + TOL = 850ns
-			else
-			{
-				GPIO->CLR[0] = 1 << 29 ;
-				DELAY_ASM
-			}
-		}
+		send24Bits(matriz[nled]);		//Función para optimizar manejo de memoria
 	}
 	//Finalizar envío de datos
 	GPIO->CLR[0] = 1 << 29 ;				//Se assegura que la salida quede en bajo
 
 	NVIC->ISER[0] |= interrupt_state;		//Reactivación de las interrupciones anteriores
 	SysTick->CTRL |=  (0x1UL << 1);	    	//Activa interrupción del systick
+}
+
+void send24Bits(uint32_t data)
+{
+	//Bit 0
+	GPIO->SET[0] = 1 << 29 ;	//Encendido del pin
+	//Si el bit es 1 => T1H = 800ns + T1L = 450ns
+	if(data & (0x1 << (23 - 0)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	//Si el bit es 0 => TOH = 400ns + TOL = 850ns
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 1
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 1)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 2
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 2)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 3
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 3)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 4
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 4)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 5
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 5)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 6
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 6)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 7
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 7)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 8
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 8)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 9
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 9)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 10
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 10)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 11
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 11)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 12
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 12)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 13
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 13)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 14
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 14)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 15
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 15)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 16
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 16)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 17
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 17)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 18
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 18)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 19
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 19)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 20
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 20)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 21
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 21)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 22
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 22)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
+
+	//Bit 23
+	GPIO->SET[0] = 1 << 29 ;
+	if(data & (0x1 << (23 - 23)))
+	{
+		DELAY_ASM
+		GPIO->CLR[0] = 1 << 29;
+	}
+	else
+	{
+		GPIO->CLR[0] = 1 << 29;
+		DELAY_ASM
+	}
 }

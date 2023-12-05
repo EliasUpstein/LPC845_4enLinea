@@ -23,6 +23,7 @@ void clear(void);
 Led_WS2812B Color(uint8_t r, uint8_t g, uint8_t b);
 void show(void);
 
+void send24Bits(uint32_t data);
 
 #define NIVEL_ALTO 1
 #define NIVEL_BAJO 0
@@ -31,6 +32,6 @@ void show(void);
 //#define TIEMPO_LARGO 24
 //#define TIEMPO_CORTO 15
 
-#define DELAY_ASM __asm volatile("nop;");
+#define DELAY_ASM __asm volatile("nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;");
 
 #endif
