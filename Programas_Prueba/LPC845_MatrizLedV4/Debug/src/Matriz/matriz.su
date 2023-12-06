@@ -12,4 +12,5 @@
 ../src/Matriz/matriz.cpp:86:1:MatrizLed::~MatrizLed()	16	static
 ../src/Matriz/matriz.cpp:93:6:void MatrizLed::show()	16	static
 ../src/Matriz/matriz.cpp:101:6:void MatrizLed::showUART()	32	static
-../src/Matriz/matriz.cpp:135:6:void MatrizLed::showCTIMER()	32	static
+../src/Matriz/matriz.cpp:120:6:void MatrizLed::showGPIO()	32	static
+../src/Matriz/matriz.cpp:147:6:void MatrizLed::send24Bits(uint32_t)	16	static

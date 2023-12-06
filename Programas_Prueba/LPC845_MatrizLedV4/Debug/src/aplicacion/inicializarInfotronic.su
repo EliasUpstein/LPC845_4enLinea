@@ -1,10 +1,19 @@
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:110:7:std::__detail::_List_node_header::_List_node_header()	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:150:7:void std::__detail::_List_node_header::_M_init()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\01-pin\in/inputs.h:23:11:inputs::~inputs()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\01-pin\in/inputs.h:23:11:virtual inputs::~inputs()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\01-pin\out/outputs.h:50:11:outputs::~outputs()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\01-pin\out/outputs.h:50:11:virtual outputs::~outputs()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\02-gpio/gpio.h:42:7:gpio::~gpio()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\02-gpio/gpio.h:42:7:virtual gpio::~gpio()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\05-SalidasDigitales/digital_outputs.h:56:11:DigitalOutputs::~DigitalOutputs()	16	static
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV4\src\05-SalidasDigitales/digital_outputs.h:56:11:virtual DigitalOutputs::~DigitalOutputs()	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:450:14:std::__cxx11::_List_base<Callback*, std::allocator<Callback*> >::_List_impl::~_List_impl()	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:536:7:std::__cxx11::_List_base<_Tp, _Alloc>::_List_base() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:749:7:std::__cxx11::list<_Tp, _Alloc>::list() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
-../src/aplicacion/inicializarInfotronic.cpp:56:6:void systick_callback()	24	static
-../src/aplicacion/inicializarInfotronic.cpp:63:6:void InicializarInfotronic()	48	static
+../src/aplicacion/inicializarInfotronic.cpp:54:6:void systick_callback()	24	static
+../src/aplicacion/inicializarInfotronic.cpp:60:13:void setFlashWaitStates(uint8_t)	24	static
+../src/aplicacion/inicializarInfotronic.cpp:78:6:void InicializarInfotronic()	48	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:455:2:std::__cxx11::_List_base<_Tp, _Alloc>::_List_impl::_List_impl() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\allocator.h:174:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::_List_node<Callback*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:574:7:std::__cxx11::_List_base<_Tp, _Alloc>::~_List_base() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
@@ -28,5 +37,5 @@ e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win3
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\ext\aligned_buffer.h:64:7:void* __gnu_cxx::__aligned_membuf<_Tp>::_M_addr() [with _Tp = Callback*]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\new_allocator.h:142:7:void std::__new_allocator<_Tp>::deallocate(_Tp*, size_type) [with _Tp = std::_List_node<Callback*>]	24	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:903:7:std::__cxx11::list<_Tp, _Alloc>::~list() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
-../src/aplicacion/inicializarInfotronic.cpp:99:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../src/aplicacion/inicializarInfotronic.cpp:99:1:cpp)	8	static
+../src/aplicacion/inicializarInfotronic.cpp:102:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../src/aplicacion/inicializarInfotronic.cpp:102:1:cpp)	8	static

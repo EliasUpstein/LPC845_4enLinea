@@ -6,7 +6,7 @@ MatrizLed::MatrizLed(uint8_t puerto, uint8_t bit, uint8_t nleds)
 	m_uart = nullptr;
 	m_nleds = nleds;
     matriz = new Led_WS2812B[nleds];
-    out_matriz->SetPin();
+    out_matriz->ClrPin();
 }
 
 MatrizLed::MatrizLed(uart* uart, uint8_t nleds)
@@ -93,7 +93,7 @@ MatrizLed::~MatrizLed()
 void MatrizLed::show(void)
 {
 	if(out_matriz != nullptr && m_uart == nullptr)
-		showCTIMER();
+		showGPIO();
 	else if(out_matriz == nullptr && m_uart != nullptr)
 		showUART();
 }
@@ -103,7 +103,6 @@ void MatrizLed::showUART(void)
 	for(int i = 0; i < m_nleds; i++)
 	{
 		m_uart->Transmit((void*) &i, 1);
-		//m_uart->Transmit((void*) &matriz[i], 3);
 		m_uart->Transmit((void*) &matriz[i].r, 1);
 		m_uart->Transmit((void*) &matriz[i].g, 1);
 		m_uart->Transmit((void*) &matriz[i].b, 1);
@@ -118,111 +117,346 @@ void MatrizLed::showUART(void)
 1,25us (por bit) * 8 (por byte) * 3 (por led) = 30us por led
 30us * 64 (leds de nuestra matriz) = 1920us = 1.92 ms => aprox 2ms	*/
 
-/*
-	Se inicializa el ciclo desde el método show del objeto MatrizLed
-	La primera interrupción siempre ingresa a NIVEL_ALTO ya que los datos siempre inician en alto
-	Evalua el valor del bit actual para setear el timer, el toggle del pin se configura desde el registro
-	Se aumenta el bit, color, y/o led según corresponda y se cambia de estado para la siguiente interrución
-	En NIVEL_BAJO, ya está incrementado el bit por lo que ya se está leyendo el siguiente dato
-	El encendido de la salida se realiza desde el toggle del registro. La siguiente interrupción la hará en NIVEL_AlTO
-
-	Cuando no tenga más leds en la matriz para recorrer, finaliza la interrupción del ctimer, inicializa la interrupciones
-	que estaban habilitadas antes del show, se asegura de apagar la salida.
-*/
-
-/*
- * Implementación de la función por pooling
- * */
-void MatrizLed::showCTIMER(void)
+void MatrizLed::showGPIO(void)
 {
-	volatile uint8_t estado = NIVEL_ALTO;
-	volatile uint8_t nbit = 0;
-	volatile uint8_t nled = 0;
-	volatile uint8_t bit_actual_bajo;
-
 	volatile uint32_t interrupt_state;
-	volatile bool block = true;
 
-	volatile uint32_t ticks_ant = 0;
+	//Setea el wait states en 0 (programación defensiva en caso de que se haya cambiado este registro)
+	FLASH_CTRL->FLASHCFG = ((FLASH_CTRL->FLASHCFG)&~FLASH_CTRL_FLASHCFG_FLASHTIM_MASK) | 0x0;
 
 	//Detener las interrupciones ajenas a la matriz (se reactivan al final de la rutina)
 	interrupt_state = NVIC->ISER[0];			//Guarda en una variable el estado que tenía al momento del llamado
 	NVIC->ICER[0] = 0xFFFFFFFF;					//Apaga todas las interrupciones
 	SysTick->CTRL &=  ~(0x1UL << 1);			//Detiene interrupción del systick
 
-	//Configurar valor para el primer bit (MSB) (tiempo 0, primer interrupción)
-	(((matriz[0].r >> 7) & 0x1) == 0) ? (CTIMER0->MR[0] = TIEMPO_CORTO) : (CTIMER0->MR[0] = TIEMPO_LARGO);
+	GPIO->CLR[0] = 1 << 29 ;					//Se asegura que el pin esté el LOW
 
-	GPIO->CLR[1] = 1 << 0 ;												//Activar salida
-
-	//Une función móvil del match0 al pio1_0
-	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Habilita clock de SWM
-	// Asigna MATCH0 a P1.0		Limpia los 8 bits que tenía cargados	   Establece el nuevo valor (PIO1_0)
-	SWM0->PINASSIGN_DATA[13] = (SWM0->PINASSIGN_DATA[13] & ~(0xFFUL << 8)) | (32U << 8);
-	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Deshabilita clock de SWM
-
-	CTIMER0->TCR |= CTIMER_TCR_CEN_MASK;								// Arranque del contador
-
-	//Bloqueo para que permanezca en la función
-	while(block)
+	//Bucle para leds
+	for(uint8_t nled=0; nled<m_nleds; nled++)
 	{
-		//Lectura del match (equivalente a la interrupción)
-		//Si el TC es menor al margen y anterior es mayor al margen, significa que hubo un reset en el medio
-		if((CTIMER0->TC < MARGEN_TICKS_MENOR) && (ticks_ant > MARGEN_TICKS_MAYOR))
-		{
-			//Lectura del bit actual
-			bit_actual_bajo = ((matriz[nled] & (0x1 << (23 - nbit))) == 0);	//Desplazamiento de izquierda a derecha (MSB to LSB)
-
-			switch (estado)
-			{
-				case NIVEL_ALTO:
-					//Apagar salida (toggle del match)
-
-					//Setea el match para el próximo valor
-					bit_actual_bajo ? (CTIMER0->MR[0] = TIEMPO_LARGO) : (CTIMER0->MR[0] = TIEMPO_CORTO);
-					estado = NIVEL_BAJO;        //La próxima vez que ingrese voy al otro case
-
-					//Si sigo recorriendo el  mismo led paso al siguiente bit, sino vuelvo al bit cero
-					if(nbit < 23)
-						nbit++;
-					else
-					{
-						nbit = 0;
-						//Si sigo recorriendo la matriz paso al siguiente led, sino finalizo el show
-						if (nled < (m_nleds - 1))
-							nled++;
-						else
-							block = false;
-					}
-					break;
-				case NIVEL_BAJO:
-					//Encender salida (toggle del match)
-
-					//Setea el match para el próximo valor (las variables se aumentaron en el case anterior)
-					bit_actual_bajo ? (CTIMER0->MR[0] = TIEMPO_CORTO) : (CTIMER0->MR[0] = TIEMPO_LARGO);
-
-					estado = NIVEL_ALTO;        //La próxima interrupción va a estar en alto
-					break;
-				default:
-					block = false;
-					break;
-			}
-		}
-		ticks_ant = CTIMER0->TC;
+//		send24Bits(matriz[nled], 0, 29);		//Función para optimizar manejo de memoria
+		send24Bits(matriz[nled]);
 	}
-
 	//Finalizar envío de datos
-
-	CTIMER0->TCR &= ~CTIMER_TCR_CEN_MASK;		//Frena el contador
-
-	//Desaciocia función móvil del match0 con el pio1_0
-	SYSCON->SYSAHBCLKCTRL0 		|= SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Habilita clock de SWM
-	// Asigna MATCH0 a P1.0		Limpia los 8 bits que tenía cargados	   Establece el nuevo valor (RESET)
-	SWM0->PINASSIGN_DATA[13] = (SWM0->PINASSIGN_DATA[13] & ~(0xFFUL << 8)) | (0xffU << 8);
-	SYSCON->SYSAHBCLKCTRL0 		&= ~SYSCON_SYSAHBCLKCTRL0_SWM_MASK;		// Deshabilita clock de SWM
-
-	GPIO->SET[1] = 1 << 0 ;					//Apagado de la salida
+	GPIO->CLR[0] = 1 << 29 ;				//Se assegura que la salida quede en bajo
 
 	NVIC->ISER[0] |= interrupt_state;		//Reactivación de las interrupciones anteriores
 	SysTick->CTRL |=  (0x1UL << 1);	    	//Activa interrupción del systick
+}
+
+void MatrizLed::send24Bits(uint32_t data)
+{
+	//Bit 0
+	GPIO->SET[PORT] = 1 << PIN ;	//Encendido del PIN
+	//Si el bit es 1 => T1H = 800ns + T1L = 450ns
+	if(data & (0x1 << (23 - 0)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	//Si el bit es 0 => TOH = 400ns + TOL = 850ns
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 1
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 1)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 2
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 2)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 3
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 3)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 4
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 4)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 5
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 5)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 6
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 6)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 7
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 7)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 8
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 8)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 9
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 9)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 10
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 10)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 11
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 11)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 12
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 12)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 13
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 13)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 14
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 14)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 15
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 15)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 16
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 16)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 17
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 17)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 18
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 18)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 19
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 19)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 20
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 20)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 21
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 21)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 22
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 22)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
+
+	//Bit 23
+	GPIO->SET[PORT] = 1 << PIN ;
+	if(data & (0x1 << (23 - 23)))
+	{
+		DELAY_ASM
+		GPIO->CLR[PORT] = 1 << PIN;
+	}
+	else
+	{
+		GPIO->CLR[PORT] = 1 << PIN;
+		DELAY_ASM
+	}
 }

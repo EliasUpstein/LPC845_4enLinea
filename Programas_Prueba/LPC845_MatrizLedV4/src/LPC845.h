@@ -170,6 +170,129 @@ typedef struct {
 /** Peripheral SYSCON base pointer */
 #define SYSCON                ((SYSCON_Type *) SYSCON_BASE)
 
+
+/* ----------------------------------------------------------------------------
+   -- FLASH_CTRL Peripheral Access Layer
+   ---------------------------------------------------------------------------- */
+
+/*!
+ * @addtogroup FLASH_CTRL_Peripheral_Access_Layer FLASH_CTRL Peripheral Access Layer
+ * @{
+ */
+
+/** FLASH_CTRL - Register Layout Typedef */
+typedef struct {
+       uint8_t RESERVED_0[16];
+  __IO uint32_t FLASHCFG;                          /**< Flash configuration register, offset: 0x10 */
+       uint8_t RESERVED_1[12];
+  __IO uint32_t FMSSTART;                          /**< Flash signature start address register, offset: 0x20 */
+  __IO uint32_t FMSSTOP;                           /**< Flash signaure stop address register, offset: 0x24 */
+       uint8_t RESERVED_2[4];
+  __I  uint32_t FMSW0;                             /**< Flash signature generation result register returns the flash signature produced by the embedded signature generator.., offset: 0x2C */
+       uint8_t RESERVED_3[4016];
+  __I  uint32_t FMSTAT;                            /**< Flash signature generation status bit, offset: 0xFE0 */
+       uint8_t RESERVED_4[4];
+  __O  uint32_t FMSTATCLR;                         /**< Clear FLASH signature generation status bit, offset: 0xFE8 */
+} FLASH_CTRL_Type;
+
+/* ----------------------------------------------------------------------------
+   -- FLASH_CTRL Register Masks
+   ---------------------------------------------------------------------------- */
+
+/*!
+ * @addtogroup FLASH_CTRL_Register_Masks FLASH_CTRL Register Masks
+ * @{
+ */
+
+/*! @name FLASHCFG - Flash configuration register */
+/*! @{ */
+#define FLASH_CTRL_FLASHCFG_FLASHTIM_MASK        (0x3U)
+#define FLASH_CTRL_FLASHCFG_FLASHTIM_SHIFT       (0U)
+/*! FLASHTIM - Flash memory access time. FLASHTIM +1 is equal to the number of system clocks used for flash access.
+ *  0b00..1 system clock flash access time.
+ *  0b01..2 system clock flash access time.
+ *  0b10..3 system clock flash access time.
+ *  0b11..Reserved.
+ */
+#define FLASH_CTRL_FLASHCFG_FLASHTIM(x)          (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FLASHCFG_FLASHTIM_SHIFT)) & FLASH_CTRL_FLASHCFG_FLASHTIM_MASK)
+/*! @} */
+
+/*! @name FMSSTART - Flash signature start address register */
+/*! @{ */
+#define FLASH_CTRL_FMSSTART_START_MASK           (0x1FFFFU)
+#define FLASH_CTRL_FMSSTART_START_SHIFT          (0U)
+/*! START - Signature generation start address (corresponds to AHB byte address bits[18:2]).
+ */
+#define FLASH_CTRL_FMSSTART_START(x)             (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSSTART_START_SHIFT)) & FLASH_CTRL_FMSSTART_START_MASK)
+/*! @} */
+
+/*! @name FMSSTOP - Flash signaure stop address register */
+/*! @{ */
+#define FLASH_CTRL_FMSSTOP_STOPA_MASK            (0x1FFFFU)
+#define FLASH_CTRL_FMSSTOP_STOPA_SHIFT           (0U)
+/*! STOPA - Stop address for signature generation (the word specified by STOP is included in the
+ *    address range). The address is in units of memory words, not bytes.
+ */
+#define FLASH_CTRL_FMSSTOP_STOPA(x)              (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSSTOP_STOPA_SHIFT)) & FLASH_CTRL_FMSSTOP_STOPA_MASK)
+#define FLASH_CTRL_FMSSTOP_STRTBIST_MASK         (0x80000000U)
+#define FLASH_CTRL_FMSSTOP_STRTBIST_SHIFT        (31U)
+/*! STRTBIST - When this bit is written to 1, signature generation starts. At the end of signature
+ *    generation, this bit is automatically cleared.
+ */
+#define FLASH_CTRL_FMSSTOP_STRTBIST(x)           (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSSTOP_STRTBIST_SHIFT)) & FLASH_CTRL_FMSSTOP_STRTBIST_MASK)
+/*! @} */
+
+/*! @name FMSW0 - Flash signature generation result register returns the flash signature produced by the embedded signature generator.. */
+/*! @{ */
+#define FLASH_CTRL_FMSW0_SIG_MASK                (0xFFFFFFFFU)
+#define FLASH_CTRL_FMSW0_SIG_SHIFT               (0U)
+/*! SIG - 32-bit signature.
+ */
+#define FLASH_CTRL_FMSW0_SIG(x)                  (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSW0_SIG_SHIFT)) & FLASH_CTRL_FMSW0_SIG_MASK)
+/*! @} */
+
+/*! @name FMSTAT - Flash signature generation status bit */
+/*! @{ */
+#define FLASH_CTRL_FMSTAT_SIG_DONE_MASK          (0x2U)
+#define FLASH_CTRL_FMSTAT_SIG_DONE_SHIFT         (1U)
+/*! SIG_DONE - This status bit is set at the end of signature computation
+ */
+#define FLASH_CTRL_FMSTAT_SIG_DONE(x)            (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSTAT_SIG_DONE_SHIFT)) & FLASH_CTRL_FMSTAT_SIG_DONE_MASK)
+/*! @} */
+
+/*! @name FMSTATCLR - Clear FLASH signature generation status bit */
+/*! @{ */
+#define FLASH_CTRL_FMSTATCLR_SIG_DONE_CLR_MASK   (0x2U)
+#define FLASH_CTRL_FMSTATCLR_SIG_DONE_CLR_SHIFT  (1U)
+/*! SIG_DONE_CLR - When the bit is written to 1, the SIGNATURE_DONE bit is cleared.
+ */
+#define FLASH_CTRL_FMSTATCLR_SIG_DONE_CLR(x)     (((uint32_t)(((uint32_t)(x)) << FLASH_CTRL_FMSTATCLR_SIG_DONE_CLR_SHIFT)) & FLASH_CTRL_FMSTATCLR_SIG_DONE_CLR_MASK)
+/*! @} */
+
+
+/*!
+ * @}
+ */ /* end of group FLASH_CTRL_Register_Masks */
+
+
+/* FLASH_CTRL - Peripheral instance base addresses */
+/** Peripheral FLASH_CTRL base address */
+#define FLASH_CTRL_BASE                          (0x40040000u)
+/** Peripheral FLASH_CTRL base pointer */
+#define FLASH_CTRL                               ((FLASH_CTRL_Type *)FLASH_CTRL_BASE)
+/** Array initializer of FLASH_CTRL peripheral base addresses */
+#define FLASH_CTRL_BASE_ADDRS                    { FLASH_CTRL_BASE }
+/** Array initializer of FLASH_CTRL peripheral base pointers */
+#define FLASH_CTRL_BASE_PTRS                     { FLASH_CTRL }
+/** Interrupt vectors for the FLASH_CTRL peripheral type */
+#define FLASH_CTRL_IRQS                          { FLASH_IRQn }
+
+/*!
+ * @}
+ */ /* end of group FLASH_CTRL_Peripheral_Access_Layer */
+
+
+
 /* ----------------------------------------------------------------------------
    -- ADC Peripheral Access Layer
    ---------------------------------------------------------------------------- */

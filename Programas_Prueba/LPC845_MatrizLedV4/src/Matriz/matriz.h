@@ -5,15 +5,10 @@
 #include "gpio.h"
 #include "uart.h"
 
-#define NIVEL_ALTO 1
-#define NIVEL_BAJO 0
+#define PORT 0
+#define PIN 29
 
-//Mínima temporización alcanzada (24 - 15)
-#define TIEMPO_LARGO 60000000
-#define TIEMPO_CORTO 15000000
-
-#define MARGEN_TICKS_MENOR 5
-#define MARGEN_TICKS_MAYOR 10
+#define DELAY_ASM __asm volatile("nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;");
 
 class MatrizLed
 {
@@ -23,8 +18,10 @@ private:
 	uint8_t m_nleds;
 	Led_WS2812B *matriz;
 
-	void showCTIMER(void);
+	void showGPIO(void);
 	void showUART(void);
+//	void send24Bits(uint32_t data, uint8_t port, uint8_t pin);
+	void send24Bits(uint32_t data);
 
 public:
 	MatrizLed (uint8_t puerto, uint8_t bit, uint8_t nleds = 1);			//Constructor para comunicación propia
