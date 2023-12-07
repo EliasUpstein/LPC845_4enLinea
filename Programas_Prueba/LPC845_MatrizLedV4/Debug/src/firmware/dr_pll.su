@@ -1,2 +1,0 @@
-../src/firmware/dr_pll.cpp:63:6:void Inicializar_PLL()	8	static
-../src/firmware/dr_pll.cpp:99:6:void Inic_OSC()	8	static

@@ -1,3 +1,0 @@
-../src/09-display_de_segmentos/09B-segmentos/segmentos-interfaz/segmentos.cpp:43:1:Segmentos::Segmentos()	16	static
-../src/09-display_de_segmentos/09B-segmentos/segmentos-interfaz/segmentos.cpp:48:1:Segmentos::~Segmentos()	16	static
-../src/09-display_de_segmentos/09B-segmentos/segmentos-interfaz/segmentos.cpp:48:1:virtual Segmentos::~Segmentos()	16	static

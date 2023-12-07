@@ -1,3 +1,0 @@
-../src/firmware/SWM/swm.cpp:30:6:void SWM_SetMovablePinSelect(swm_select_movable_t, swm_port_pin_type_t)	32	static
-../src/firmware/SWM/swm.cpp:49:6:void PINASSIGN_Config(uint8_t, uint8_t, uint8_t)	24	static
-../src/firmware/SWM/swm.cpp:58:6:void PINENABLE_Config(uint8_t, uint8_t)	16	static

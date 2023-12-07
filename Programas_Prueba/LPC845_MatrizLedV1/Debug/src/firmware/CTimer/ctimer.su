@@ -1,2 +1,0 @@
-../src/firmware/CTimer/ctimer.cpp:16:6:void inicializarCtimer()	8	static
-../src/firmware/CTimer/ctimer.cpp:25:6:void CTIMER0_IRQHandler()	8	static

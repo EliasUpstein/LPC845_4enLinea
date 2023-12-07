@@ -1,3 +1,0 @@
-C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_MatrizLedV2\src\Matriz/Led_WS2812B.h:11:5:Led_WS2812B::operator uint32_t() const	16	static
-../src/firmware/CTimer/ctimer.cpp:16:6:void inicializarCtimer()	8	static
-../src/firmware/CTimer/ctimer.cpp:25:6:void CTIMER0_IRQHandler()	8	static

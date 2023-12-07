@@ -1,9 +1,0 @@
-../src/aplicacion/main.cpp:43:6:int main()	16	static
-../src/aplicacion/main.cpp:121:6:void limpiarTablero()	16	static
-../src/aplicacion/main.cpp:132:6:void limpiarMatriz()	24	static
-../src/aplicacion/main.cpp:138:6:void llenarMatriz()	24	static
-../src/aplicacion/main.cpp:144:6:void liberarCasillero(int, int)	32	static
-../src/aplicacion/main.cpp:156:6:void ocuparCasillero(int, int, int)	40	static
-../src/aplicacion/main.cpp:168:6:bool checkWinner()	40	static
-../src/aplicacion/main.cpp:219:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../src/aplicacion/main.cpp:219:1:cpp)	8	static
