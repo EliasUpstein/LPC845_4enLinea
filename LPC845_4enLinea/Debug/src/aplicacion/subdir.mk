@@ -5,16 +5,19 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/aplicacion/aplicacion.cpp \
+../src/aplicacion/comunicacionQT.cpp \
 ../src/aplicacion/inicializarInfotronic.cpp \
 ../src/aplicacion/main.cpp 
 
 CPP_DEPS += \
 ./src/aplicacion/aplicacion.d \
+./src/aplicacion/comunicacionQT.d \
 ./src/aplicacion/inicializarInfotronic.d \
 ./src/aplicacion/main.d 
 
 OBJS += \
 ./src/aplicacion/aplicacion.o \
+./src/aplicacion/comunicacionQT.o \
 ./src/aplicacion/inicializarInfotronic.o \
 ./src/aplicacion/main.o 
 
@@ -31,7 +34,7 @@ src/aplicacion/%.o: ../src/aplicacion/%.cpp src/aplicacion/subdir.mk
 clean: clean-src-2f-aplicacion
 
 clean-src-2f-aplicacion:
-	-$(RM) ./src/aplicacion/aplicacion.d ./src/aplicacion/aplicacion.o ./src/aplicacion/inicializarInfotronic.d ./src/aplicacion/inicializarInfotronic.o ./src/aplicacion/main.d ./src/aplicacion/main.o
+	-$(RM) ./src/aplicacion/aplicacion.d ./src/aplicacion/aplicacion.o ./src/aplicacion/comunicacionQT.d ./src/aplicacion/comunicacionQT.o ./src/aplicacion/inicializarInfotronic.d ./src/aplicacion/inicializarInfotronic.o ./src/aplicacion/main.d ./src/aplicacion/main.o
 
 .PHONY: clean-src-2f-aplicacion
 

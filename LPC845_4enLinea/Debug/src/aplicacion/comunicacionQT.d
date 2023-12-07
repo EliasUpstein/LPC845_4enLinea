@@ -1,4 +1,5 @@
-src/aplicacion/main.o src/aplicacion/main.d: ../src/aplicacion/main.cpp \
+src/aplicacion/comunicacionQT.o src/aplicacion/comunicacionQT.d: \
+ ../src/aplicacion/comunicacionQT.cpp ../src/aplicacion/comunicacionQT.h \
  ../src/aplicacion/inicializarInfotronic.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/LPC845.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h \
@@ -18,7 +19,8 @@ src/aplicacion/main.o src/aplicacion/main.d: ../src/aplicacion/main.cpp \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/Led_WS2812B.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\Tablero/tablero.h \
- ../src/aplicacion/aplicacion.h ../src/aplicacion/comunicacionQT.h
+ ../src/aplicacion/aplicacion.h
+../src/aplicacion/comunicacionQT.h:
 ../src/aplicacion/inicializarInfotronic.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/LPC845.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h:
@@ -39,4 +41,3 @@ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externa
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/Led_WS2812B.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\Tablero/tablero.h:
 ../src/aplicacion/aplicacion.h:
-../src/aplicacion/comunicacionQT.h:

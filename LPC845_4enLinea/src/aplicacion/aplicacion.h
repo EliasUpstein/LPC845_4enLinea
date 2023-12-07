@@ -1,14 +1,14 @@
-/*
- * aplicacion.h
- *
- *  Created on:
- *      Author:
- */
+#ifndef APLICACION_H_
+#define APLICACION_H_
 
-#ifndef SRC_APLICACION_APLICACION_H_
-#define SRC_APLICACION_APLICACION_H_
-#include "tipos.h"
+#include "inicializarInfotronic.h"
 
+#define TIEMPO_VICTORIA 50 //Tiempo en décimas de segundo
 
+//Estados
+#define JUGADOR 0
+#define VICTORIA 1
 
-#endif /* SRC_APLICACION_APLICACION_H_ */
+void game4enLinea(void);
+
+#endif

@@ -35,11 +35,17 @@ gpio *ret0 = new gpio ( gpio::port0 , 26 , gpio::pullup ,  gpio::input , gpio::l
 gpio *ret1 = new gpio ( gpio::port0 , 15 , gpio::pullup ,  gpio::input , gpio::low );
 gpio *ret2 = new gpio ( gpio::port0 ,  8 , gpio::pullup ,  gpio::input , gpio::low );
 
+uint8_t tecla;
+
 // 		UART
 uart *uart0;
 
 //		MATRIZ
 MatrizLed matriz(0, 29, NLEDS);
+
+//		TABLERO
+Tablero tablero(FILAS, COLUMNAS, matriz);
+
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES PUBLICAS
  **********************************************************************************************************************************/
