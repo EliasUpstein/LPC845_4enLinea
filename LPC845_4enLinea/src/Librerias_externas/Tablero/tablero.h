@@ -10,7 +10,7 @@ private:
 	uint8_t** m_tablero;
 	uint8_t m_filas, m_columnas;
 	MatrizLed& m_matriz;
-	Led_WS2812B color[2];
+	Led_WS2812B color[3];
 
 	uint8_t m_jugadorActual;
 	uint8_t m_columnaActual;
@@ -20,10 +20,16 @@ public:
 	Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz);
 	void limpiarTablero(void);
 	void llenarTablero(void);
+	void llenarTablero(uint8_t player);
 	void liberarCasillero(uint8_t fila, uint8_t columna);
 	void ocuparCasillero(uint8_t fila, uint8_t columna);
+	void ocuparCasillero(uint8_t fila, uint8_t columna, uint8_t player);
+	void ocuparFila(uint8_t fila, uint8_t player);
 	void tirarFicha(uint8_t columna);
 	bool checkWinner(void);
+	bool checkFullBoard(void);
+	bool checkFullRow(uint8_t fila);
+	bool checkFullColumn(uint8_t columna);
 
 	Led_WS2812B getColor1(void);
 	void setColor1(uint8_t r, uint8_t g, uint8_t b);
@@ -36,8 +42,10 @@ public:
 
 	void setColumnaActual(uint8_t column);
 	uint8_t getColumnaActual(void);
-	void incrementarColumna(uint8_t increment);
-	void decrementarColumna(uint8_t decrement);
+	bool incrementarColumna(uint8_t increment);
+	bool decrementarColumna(uint8_t decrement);
+
+	uint8_t lastRowFree(uint8_t column);
 
 	~Tablero();
 };
