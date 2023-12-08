@@ -7,8 +7,8 @@ Tablero::Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz)
 	m_columnas = columnas;
 	m_jugadorActual = JUGADOR1;
 	m_columnaActual = 0;
-	color[JUGADOR1] = matriz.color(0,0, 100);
-	color[JUGADOR2] = matriz.color(100,0, 0);
+	color[JUGADOR1] = matriz.color(0,0, INTENSIDAD);
+	color[JUGADOR2] = matriz.color(INTENSIDAD,0, 0);
 
 	// Declarar la matriz utilizando new
 	m_tablero = new uint8_t*[filas];  // Crear un array de punteros a int (filas)

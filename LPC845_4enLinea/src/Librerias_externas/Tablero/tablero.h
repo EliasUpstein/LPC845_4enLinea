@@ -1,7 +1,7 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
-#include "inicializarInfotronic.h"
+#include "tipos.h"
 #include "matriz.h"
 
 class Tablero

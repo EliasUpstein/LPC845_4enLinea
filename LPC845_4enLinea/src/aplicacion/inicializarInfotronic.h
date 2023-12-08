@@ -23,8 +23,11 @@ using namespace std;
 #include "teclado.h"
 #include "uart.h"
 
-#include "tablero.h"
 #include "matriz.h"
+#include "tablero.h"
+
+#include "aplicacion.h"
+#include "comunicacionQT.h"
 
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES
@@ -36,6 +39,7 @@ using namespace std;
 
 //!<	TECLADO
 extern teclado *Teclado;
+extern uint8_t tecla;
 
 // 		UART
 extern uart *uart0;
@@ -43,6 +47,11 @@ extern uart *uart0;
 //		MATRIZ
 #define NLEDS 64
 extern MatrizLed matriz;
+
+//		TABLERO
+#define FILAS 8
+#define COLUMNAS 8
+extern Tablero tablero;
 
 /***********************************************************************************************************************************
  *** PROTOTIPOS GLOBALES
