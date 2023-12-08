@@ -10,6 +10,10 @@ void game4enLinea(void)
 
 	static uint8_t filaAux = 0;
 
+	//Para el caso del reset
+	if(!startGame)
+		estado = ESPERA;
+
 	switch (estado)
 	{
 	case ESPERA:
@@ -17,11 +21,8 @@ void game4enLinea(void)
 		{
 			startGame = true;
 			uart0->Transmit("S");
-
-			resetGame();
-			estado = JUGADOR;
 		}
-		if(startGame == true)
+		if(startGame == true)	//Se cambia desde la comunicación o desde el if de arriba
 		{
 			resetGame();
 			estado = JUGADOR;
