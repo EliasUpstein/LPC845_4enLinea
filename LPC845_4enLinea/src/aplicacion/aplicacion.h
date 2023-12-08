@@ -19,6 +19,7 @@
 extern bool startGame;
 
 void game4enLinea(void);
+void resetGame(void);
 
 
 #endif

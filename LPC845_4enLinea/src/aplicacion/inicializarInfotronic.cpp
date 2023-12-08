@@ -91,5 +91,6 @@ void InicializarInfotronic ( void )
 
 	tablero.limpiarTablero();
 	tablero.setColumnaActual(0);
+	tablero.ocuparFila(0, 2);	//Llena toda la primer fila en blanco
 	matriz.show();
 }

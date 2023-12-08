@@ -1,20 +1,26 @@
 ../src/Librerias_externas/Tablero/tablero.cpp:3:1:Tablero::Tablero(uint8_t, uint8_t, MatrizLed&)	48	static
-../src/Librerias_externas/Tablero/tablero.cpp:20:6:void Tablero::limpiarTablero()	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:33:6:void Tablero::llenarTablero()	32	static
-../src/Librerias_externas/Tablero/tablero.cpp:46:6:void Tablero::liberarCasillero(uint8_t, uint8_t)	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:55:6:void Tablero::ocuparCasillero(uint8_t, uint8_t)	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:64:6:void Tablero::tirarFicha(uint8_t)	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:81:9:uint8_t Tablero::lastRowFree(uint8_t)	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:95:13:Led_WS2812B Tablero::getColor1()	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:100:6:void Tablero::setColor1(uint8_t, uint8_t, uint8_t)	24	static
-../src/Librerias_externas/Tablero/tablero.cpp:105:13:Led_WS2812B Tablero::getColor2()	32	static
-../src/Librerias_externas/Tablero/tablero.cpp:110:6:void Tablero::setColor2(uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/Tablero/tablero.cpp:115:6:void Tablero::setPlayer(uint8_t)	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:121:9:uint8_t Tablero::getPlayer()	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:126:6:void Tablero::changePlayer()	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:131:6:void Tablero::setColumnaActual(uint8_t)	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:137:9:uint8_t Tablero::getColumnaActual()	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:142:6:bool Tablero::incrementarColumna(uint8_t)	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:152:6:bool Tablero::decrementarColumna(uint8_t)	16	static
-../src/Librerias_externas/Tablero/tablero.cpp:162:6:bool Tablero::checkWinner()	48	static
-../src/Librerias_externas/Tablero/tablero.cpp:215:1:Tablero::~Tablero()	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:21:6:void Tablero::limpiarTablero()	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:34:6:void Tablero::llenarTablero()	32	static
+../src/Librerias_externas/Tablero/tablero.cpp:47:6:void Tablero::llenarTablero(uint8_t)	32	static
+../src/Librerias_externas/Tablero/tablero.cpp:62:6:void Tablero::liberarCasillero(uint8_t, uint8_t)	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:71:6:void Tablero::ocuparCasillero(uint8_t, uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:80:6:void Tablero::ocuparCasillero(uint8_t, uint8_t, uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:89:6:void Tablero::ocuparFila(uint8_t, uint8_t)	32	static
+../src/Librerias_externas/Tablero/tablero.cpp:101:6:void Tablero::tirarFicha(uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:118:9:uint8_t Tablero::lastRowFree(uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:132:13:Led_WS2812B Tablero::getColor1()	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:137:6:void Tablero::setColor1(uint8_t, uint8_t, uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:142:13:Led_WS2812B Tablero::getColor2()	32	static
+../src/Librerias_externas/Tablero/tablero.cpp:147:6:void Tablero::setColor2(uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/Tablero/tablero.cpp:152:6:void Tablero::setPlayer(uint8_t)	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:158:9:uint8_t Tablero::getPlayer()	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:163:6:void Tablero::changePlayer()	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:168:6:void Tablero::setColumnaActual(uint8_t)	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:174:9:uint8_t Tablero::getColumnaActual()	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:179:6:bool Tablero::incrementarColumna(uint8_t)	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:189:6:bool Tablero::decrementarColumna(uint8_t)	16	static
+../src/Librerias_externas/Tablero/tablero.cpp:199:6:bool Tablero::checkWinner()	48	static
+../src/Librerias_externas/Tablero/tablero.cpp:252:6:bool Tablero::checkFullBoard()	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:265:6:bool Tablero::checkFullRow(uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:279:6:bool Tablero::checkFullColumn(uint8_t)	24	static
+../src/Librerias_externas/Tablero/tablero.cpp:293:1:Tablero::~Tablero()	24	static
