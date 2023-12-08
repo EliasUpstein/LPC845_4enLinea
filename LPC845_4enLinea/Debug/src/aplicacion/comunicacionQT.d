@@ -18,6 +18,8 @@ src/aplicacion/comunicacionQT.o src/aplicacion/comunicacionQT.d: \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/ComunicacionAsincronica.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/Led_WS2812B.h \
+ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/colors.h \
+ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\Tablero/tablero.h \
  ../src/aplicacion/aplicacion.h
 ../src/aplicacion/comunicacionQT.h:
@@ -39,5 +41,7 @@ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/ComunicacionAsincronica.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/Led_WS2812B.h:
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/colors.h:
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\Tablero/tablero.h:
 ../src/aplicacion/aplicacion.h:

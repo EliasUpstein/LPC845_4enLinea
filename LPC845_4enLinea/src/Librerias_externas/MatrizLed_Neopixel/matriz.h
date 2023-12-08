@@ -8,8 +8,6 @@
 #define PORT 0
 #define PIN 29
 
-#define INTENSIDAD 100
-
 #define DELAY_ASM __asm volatile("nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;");
 
 class MatrizLed
@@ -28,7 +26,7 @@ private:
 public:
 	MatrizLed (uint8_t puerto, uint8_t bit, uint8_t nleds = 1);			//Constructor para comunicación propia
 	MatrizLed (uart* uart, uint8_t nleds = 1);							//Constructor para comunicación serie
-	Led_WS2812B color(uint8_t r, uint8_t g, uint8_t b);
+	static Led_WS2812B color(uint8_t r, uint8_t g, uint8_t b);
 	void setLed(uint8_t led, Led_WS2812B color);
 	void setLed(uint8_t led, uint8_t r, uint8_t g, uint8_t b);
 	void setLeds(uint8_t first, uint8_t cant, Led_WS2812B color);

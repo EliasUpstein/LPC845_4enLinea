@@ -1,7 +1,7 @@
 ../src/Librerias_externas/MatrizLed_Neopixel/Led_WS2812B.h:13:5:Led_WS2812B::operator uint32_t() const	16	static
 ../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:3:1:MatrizLed::MatrizLed(uint8_t, uint8_t, uint8_t)	32	static
 ../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:12:1:MatrizLed::MatrizLed(uart*, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:21:13:Led_WS2812B MatrizLed::color(uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:21:13:static Led_WS2812B MatrizLed::color(uint8_t, uint8_t, uint8_t)	32	static
 ../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:32:6:void MatrizLed::setLed(uint8_t, Led_WS2812B)	24	static
 ../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:38:6:void MatrizLed::setLed(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
 ../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:43:6:void MatrizLed::setLeds(uint8_t, uint8_t, Led_WS2812B)	40	static

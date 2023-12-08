@@ -7,9 +7,9 @@ Tablero::Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz)
 	m_columnas = columnas;
 	m_jugadorActual = JUGADOR1;
 	m_columnaActual = 0;
-	color[JUGADOR1] = matriz.color(0,0, INTENSIDAD);
-	color[JUGADOR2] = matriz.color(INTENSIDAD,0, 0);
-	color[LIBRE] = matriz.color(INTENSIDAD/5,INTENSIDAD/5, INTENSIDAD/5);
+	color[JUGADOR1] = AZUL;
+	color[JUGADOR2] = ROJO;
+	color[LIBRE] = BLANCO;
 
 	// Declarar la matriz utilizando new
 	m_tablero = new uint8_t*[filas];  // Crear un array de punteros a int (filas)
@@ -139,6 +139,11 @@ void Tablero::setColor1(uint8_t r, uint8_t g, uint8_t b)
 	color[0] = m_matriz.color(r,g,b);
 }
 
+void Tablero::setColor1(Led_WS2812B colour)
+{
+	color[0] = colour;
+}
+
 Led_WS2812B Tablero::getColor2(void)
 {
 	return color[1];
@@ -147,6 +152,30 @@ Led_WS2812B Tablero::getColor2(void)
 void Tablero::setColor2(uint8_t r, uint8_t g, uint8_t b)
 {
 	color[1] = m_matriz.color(r,g,b);
+}
+
+void Tablero::setColor2(Led_WS2812B colour)
+{
+	color[1] = colour;
+}
+
+Led_WS2812B Tablero::getColor(uint8_t player)
+{
+	if(player < 3)
+		return color[player];
+	return OFF;
+}
+
+void Tablero::setColor(uint8_t player, uint8_t r, uint8_t g, uint8_t b)
+{
+	if(player < 3)
+		color[player] = m_matriz.color(r,g,b);
+}
+
+void Tablero::setColor(uint8_t player, Led_WS2812B colour)
+{
+	if(player < 3)
+		color[player] = colour;
 }
 
 void Tablero::setPlayer(uint8_t player)
