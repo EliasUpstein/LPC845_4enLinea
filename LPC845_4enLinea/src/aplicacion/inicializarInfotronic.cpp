@@ -14,7 +14,7 @@
  *********************************************************************************************************************************/
 list <Callback*> g_CallbackList;
 
-//!<	SALIDAS DIGITALES
+//!<	SALIDAS DIGITALES (leds de la placa)
 DigitalOutputs g_out0( gpio::port1 , 0 , gpio::pushpull , gpio::high, gpio::off );
 DigitalOutputs g_out1( gpio::port1 , 1 , gpio::pushpull , gpio::high , gpio::off );
 DigitalOutputs g_out2( gpio::port1 , 2 , gpio::pushpull , gpio::high , gpio::off );

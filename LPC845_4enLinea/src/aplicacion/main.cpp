@@ -12,7 +12,6 @@ int  main(void)
 	InicializarInfotronic();
 
 	while ( 1 ){
-
 		tecla = Teclado->GetKey( );
 
 		comunicacionQT();

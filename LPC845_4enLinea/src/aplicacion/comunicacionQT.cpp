@@ -62,4 +62,6 @@ void comunicacionQT(void)
 			}
 		}
 	}
+	else						//Cuando no recibe nada recetea el button
+		button = BUTTON_ERROR;
 }
