@@ -8,6 +8,8 @@ void game4enLinea(void)
 	static Timer t;
 	uint8_t dato;
 
+	static uint8_t filaAux = 0;
+
 	switch (estado)
 	{
 	case ESPERA:
@@ -29,39 +31,69 @@ void game4enLinea(void)
 		break;
 	case JUGADOR:
 		//Se presiona el pulsador de la izquierda y no está en la primer columna y la izquierda está libre
-		if (((tecla == IZQUIERDA) || (button == IZQUIERDA)) && (tablero.getColumnaActual() != 0))
+		if ((tecla == IZQUIERDA) || (button == IZQUIERDA))
 		{
 			tablero.liberarCasillero(0, tablero.getColumnaActual());
-			tablero.decrementarColumna(1);
+
+			if(!tablero.decrementarColumna(1))
+				tablero.setColumnaActual(COLUMNAS - 1);
+
 			tablero.ocuparCasillero(0, tablero.getColumnaActual());
 			matriz.show();
 		}
 		//Se presiona el pulsador de la derecha y no está en la última columna y la derecha está libre
-		else if (((tecla == DERECHA) || (button == DERECHA)) && (tablero.getColumnaActual() != COLUMNAS-1))
+		else if ((tecla == DERECHA) || (button == DERECHA))
 		{
 			tablero.liberarCasillero(0, tablero.getColumnaActual());
-			tablero.incrementarColumna(1);
+
+			if(!tablero.incrementarColumna(1))
+				tablero.setColumnaActual(0);
+
 			tablero.ocuparCasillero(0, tablero.getColumnaActual());
 			matriz.show();
 		}
 		else if (tecla == CONFIRMAR || button == CONFIRMAR)
 		{
-			tablero.tirarFicha(tablero.getColumnaActual());
-			tablero.setColumnaActual(0);
-
-			if (tablero.checkWinner())
+			//Chequea que no se llene la fila superior
+			if(tablero.lastRowFree(tablero.getColumnaActual()) > 0)
 			{
-				estado = VICTORIA;
-				tablero.llenarTablero();
-				t = TIEMPO_VICTORIA;
-
-				dato = tablero.getPlayer() + 48;
-				uart0->Transmit(&dato,1);	//Envía para incrementar el contador de victorias
+				estado = CAIDA_FICHA;
+				t = TIEMPO_CAIDA;
+			}
+		}
+		break;
+	case CAIDA_FICHA:
+		//Cada vez que vence el timer
+		if(t)
+		{
+			//Mientras no haya alcanzado la última fila
+			if(filaAux < tablero.lastRowFree(tablero.getColumnaActual()))
+			{
+				tablero.liberarCasillero(filaAux, tablero.getColumnaActual());		//Libera el casillero ocupado actual
+				filaAux++;															//Baja una fila
+				tablero.ocuparCasillero(filaAux, tablero.getColumnaActual());		//Enciende el siguiente casillero
+				t = TIEMPO_CAIDA;
 			}
 			else
 			{
-				tablero.changePlayer();
-				tablero.ocuparCasillero(0, tablero.getColumnaActual());
+				filaAux = 0;
+				tablero.setColumnaActual(0);
+
+				if (tablero.checkWinner())
+				{
+					estado = VICTORIA;
+					tablero.llenarTablero();
+					t = TIEMPO_VICTORIA;
+
+					dato = tablero.getPlayer() + 48;	//Suma 48 para enviar el número como caracter ASCII
+					uart0->Transmit(&dato,1);	//Envía para incrementar el contador de victorias
+				}
+				else
+				{
+					estado = JUGADOR;
+					tablero.changePlayer();
+					tablero.ocuparCasillero(0, tablero.getColumnaActual());
+				}
 			}
 			matriz.show();
 		}

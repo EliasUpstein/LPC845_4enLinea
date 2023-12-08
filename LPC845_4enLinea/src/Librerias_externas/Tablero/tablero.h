@@ -36,8 +36,10 @@ public:
 
 	void setColumnaActual(uint8_t column);
 	uint8_t getColumnaActual(void);
-	void incrementarColumna(uint8_t increment);
-	void decrementarColumna(uint8_t decrement);
+	bool incrementarColumna(uint8_t increment);
+	bool decrementarColumna(uint8_t decrement);
+
+	uint8_t lastRowFree(uint8_t column);
 
 	~Tablero();
 };

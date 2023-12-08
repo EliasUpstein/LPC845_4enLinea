@@ -45,28 +45,51 @@ void Tablero::llenarTablero(void)
 
 void Tablero::liberarCasillero(uint8_t fila, uint8_t columna)
 {
-	m_tablero[fila][columna] = LIBRE;
-	m_matriz.clearLed(columna + fila * m_filas);
+	if((fila < m_filas) && (columna < m_columnas))
+	{
+		m_tablero[fila][columna] = LIBRE;
+		m_matriz.clearLed(columna + fila * m_filas);
+	}
 }
 
 void Tablero::ocuparCasillero(uint8_t fila, uint8_t columna)
 {
-	m_tablero[fila][columna] = m_jugadorActual;
-	m_matriz.setLed(columna + fila * m_filas, color[m_jugadorActual]);
+	if((fila < m_filas) && (columna < m_columnas))
+	{
+		m_tablero[fila][columna] = m_jugadorActual;
+		m_matriz.setLed(columna + fila * m_filas, color[m_jugadorActual]);
+	}
 }
 
 void Tablero::tirarFicha(uint8_t columna)
 {
-	//Validar hasta donde baja utilizando la columna (de abajo hacia arriba)
-	for (int fila = m_filas - 1; fila >= 0; fila--)
+	if(columna < m_columnas)
 	{
-		if(m_tablero[fila][columna] == LIBRE)
+		//Validar hasta donde baja utilizando la columna (de abajo hacia arriba)
+		for (int fila = m_filas - 1; fila > 0; fila--)
 		{
-			liberarCasillero(0, columna);
-			ocuparCasillero(fila, columna);
-			break;
+			if(m_tablero[fila][columna] == LIBRE)
+			{
+				liberarCasillero(0, columna);
+				ocuparCasillero(fila, columna);
+				break;
+			}
 		}
 	}
+}
+
+uint8_t Tablero::lastRowFree(uint8_t columna)
+{
+	if(columna < m_columnas)
+	{
+		//Validar hasta donde baja utilizando la columna (de abajo hacia arriba)
+		for (uint8_t lastrow = m_filas - 1; lastrow > 0; lastrow--)
+		{
+			if(m_tablero[lastrow][columna] == LIBRE)
+				return lastrow;
+		}
+	}
+	return 0;
 }
 
 Led_WS2812B Tablero::getColor1(void)
@@ -91,7 +114,8 @@ void Tablero::setColor2(uint8_t r, uint8_t g, uint8_t b)
 
 void Tablero::setPlayer(uint8_t player)
 {
-	m_jugadorActual = player;
+	if(player < 2)
+		m_jugadorActual = player;
 }
 
 uint8_t Tablero::getPlayer(void)
@@ -106,7 +130,8 @@ void Tablero::changePlayer(void)
 
 void Tablero::setColumnaActual(uint8_t column)
 {
-	m_columnaActual = column;
+	if(column < m_columnas)
+		m_columnaActual = column;
 }
 
 uint8_t Tablero::getColumnaActual(void)
@@ -114,14 +139,24 @@ uint8_t Tablero::getColumnaActual(void)
 	return m_columnaActual;
 }
 
-void Tablero::incrementarColumna(uint8_t increment)
+bool Tablero::incrementarColumna(uint8_t increment)
 {
-	m_columnaActual += increment;
+	if(m_columnaActual + increment < m_columnas)
+	{
+		m_columnaActual += increment;
+		return true;
+	}
+	return false;
 }
 
-void Tablero::decrementarColumna(uint8_t decrement)
+bool Tablero::decrementarColumna(uint8_t decrement)
 {
-	m_columnaActual -= decrement;
+	if(m_columnaActual - decrement >= 0)
+	{
+		m_columnaActual -= decrement;
+		return true;
+	}
+	return false;
 }
 
 bool Tablero::checkWinner(void)
