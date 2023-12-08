@@ -42,10 +42,15 @@ private slots:
 
     void on_Comienzo_Juego_clicked();
 
+    void on_Reiniciar_Juego_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *serial;
     QString portname;
+    QStringList Colors_1;
+    QStringList Colors_2;
+    int Aux;
     void enumerarPuertos();
     void begining();
 };
