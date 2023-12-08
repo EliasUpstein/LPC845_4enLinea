@@ -1,0 +1,2 @@
+../src/aplicacion/aplicacion.cpp:5:6:void game4enLinea()	24	static
+../src/aplicacion/aplicacion.cpp:129:6:void resetGame()	8	static

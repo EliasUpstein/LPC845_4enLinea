@@ -373,14 +373,14 @@ void MainWindow::on_Rein_Cont_clicked()
 void MainWindow::on_Mov_Der_clicked()
 {
     if(serial->isWritable()){ //chequeao que la comunicación tenga habilitada la escritura
-        serial->write("2"); //envio el valor equivalente a la switch en el teclado fisico del Kit
+        serial->write("0"); //envio el valor equivalente a la switch en el teclado fisico del Kit
     }
 }
 
 void MainWindow::on_Mov_Izq_clicked()
 {
     if(serial->isWritable()){ //chequeao que la comunicación tenga habilitada la escritura
-        serial->write("0"); //envio el valor equivalente a la switch en el teclado fisico del Kit
+        serial->write("2"); //envio el valor equivalente a la switch en el teclado fisico del Kit
     }
 }
 
