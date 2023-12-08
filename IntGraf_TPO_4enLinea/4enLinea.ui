@@ -168,8 +168,8 @@
      <rect>
       <x>480</x>
       <y>170</y>
-      <width>541</width>
-      <height>431</height>
+      <width>531</width>
+      <height>311</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -182,7 +182,7 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>50</y>
+       <y>10</y>
        <width>391</width>
        <height>81</height>
       </rect>
@@ -199,8 +199,8 @@
     <widget class="QPushButton" name="Mov_Der">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>170</y>
+       <x>280</x>
+       <y>100</y>
        <width>231</width>
        <height>81</height>
       </rect>
@@ -218,7 +218,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>170</y>
+       <y>100</y>
        <width>231</width>
        <height>81</height>
       </rect>
@@ -235,8 +235,8 @@
     <widget class="QPushButton" name="Conf_Pos">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>290</y>
+       <x>150</x>
+       <y>200</y>
        <width>231</width>
        <height>81</height>
       </rect>
@@ -286,26 +286,6 @@
      <property name="styleSheet">
       <string notr="true"/>
      </property>
-     <item>
-      <property name="text">
-       <string>Rojo</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Azul</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Verde</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Amarillo</string>
-      </property>
-     </item>
     </widget>
     <widget class="QComboBox" name="Colores_Jug_2">
      <property name="geometry">
@@ -324,26 +304,6 @@
      <property name="whatsThis">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
-     <item>
-      <property name="text">
-       <string>Azul</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Rojo</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Verde</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Amarillo</string>
-      </property>
-     </item>
     </widget>
     <widget class="QLabel" name="Jug_1_Color">
      <property name="geometry">
@@ -384,11 +344,16 @@
     <widget class="QPushButton" name="Conf_Color_Jug_1">
      <property name="geometry">
       <rect>
-       <x>580</x>
-       <y>100</y>
-       <width>241</width>
-       <height>51</height>
+       <x>550</x>
+       <y>90</y>
+       <width>331</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Confirma Color Jugador Nº 1</string>
@@ -397,11 +362,16 @@
     <widget class="QPushButton" name="Conf_Color_Jug_2">
      <property name="geometry">
       <rect>
-       <x>580</x>
+       <x>550</x>
        <y>190</y>
-       <width>241</width>
-       <height>51</height>
+       <width>331</width>
+       <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Confirma Color Jugador Nº 2</string>
@@ -696,8 +666,181 @@
       <string>Comenzar Juego</string>
      </property>
     </widget>
+    <widget class="QLabel" name="Error">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>270</y>
+       <width>301</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>*Error abriendo la comunicación*</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Rosa_1">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>80</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff00ae;&quot;&gt;Rosa&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Celeste_1">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>80</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ffff;&quot;&gt;Celeste&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Violeta_1">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>80</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#aa00ff;&quot;&gt;Violeta&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Naranja_1">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>80</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffaa00;&quot;&gt;Naranja&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Rosa_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>170</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff00ae;&quot;&gt;Rosa&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Celeste_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>170</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00ffff;&quot;&gt;Celeste&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Violeta_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>170</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#aa00ff;&quot;&gt;Violeta&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Naranja_2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>170</y>
+       <width>101</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffaa00;&quot;&gt;Naranja&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <zorder>Celeste_2</zorder>
+    <zorder>Violeta_2</zorder>
+    <zorder>Naranja_2</zorder>
+    <zorder>Celeste_1</zorder>
     <zorder>Colores_Jug_1</zorder>
     <zorder>Colores_Jug_2</zorder>
+    <zorder>Error</zorder>
+    <zorder>Listo_2</zorder>
+    <zorder>Listo_1</zorder>
+    <zorder>Comienzo_Juego</zorder>
     <zorder>Jug_1_Color</zorder>
     <zorder>Jug_2_Color</zorder>
     <zorder>Conf_Color_Jug_1</zorder>
@@ -706,14 +849,15 @@
     <zorder>Amarillo_2</zorder>
     <zorder>Azul_1</zorder>
     <zorder>Azul_2</zorder>
-    <zorder>Rojo_1</zorder>
     <zorder>Rojo_2</zorder>
     <zorder>Verde_1</zorder>
     <zorder>Verde_2</zorder>
-    <zorder>Listo_1</zorder>
-    <zorder>Listo_2</zorder>
     <zorder>groupBoxConex</zorder>
-    <zorder>Comienzo_Juego</zorder>
+    <zorder>Rosa_2</zorder>
+    <zorder>Rojo_1</zorder>
+    <zorder>Rosa_1</zorder>
+    <zorder>Naranja_1</zorder>
+    <zorder>Violeta_1</zorder>
    </widget>
    <widget class="QLabel" name="Fondo_Juego">
     <property name="geometry">
@@ -731,7 +875,29 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="Reiniciar_Juego">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>490</y>
+      <width>531</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(189, 189, 189);</string>
+    </property>
+    <property name="text">
+     <string>Reiniciar Juego</string>
+    </property>
+   </widget>
    <zorder>Fondo_Juego</zorder>
+   <zorder>Reiniciar_Juego</zorder>
    <zorder>Movimiento</zorder>
    <zorder>Contador</zorder>
    <zorder>Color</zorder>
