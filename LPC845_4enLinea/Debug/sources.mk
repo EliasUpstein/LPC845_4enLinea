@@ -28,9 +28,15 @@ src/Librerias_externas/MatrizLed_Neopixel \
 src/Librerias_externas/Tablero \
 src/Modulos/02-gpio \
 src/Modulos/03-callback \
+src/Modulos/04-EntradasDigitales \
 src/Modulos/05-SalidasDigitales \
 src/Modulos/06-timer \
 src/Modulos/08-teclado \
+src/Modulos/09-display_de_segmentos/09A-barrido \
+src/Modulos/09-display_de_segmentos/09A-barrido/barrido-interfaz \
+src/Modulos/09-display_de_segmentos/09B-segmentos \
+src/Modulos/09-display_de_segmentos/09B-segmentos/segmentos-interfaz \
+src/Modulos/09-display_de_segmentos/09C-display \
 src/Modulos/12-USART \
 src/aplicacion \
 src/firmware/Flash \

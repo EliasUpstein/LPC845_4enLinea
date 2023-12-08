@@ -1,6 +1,8 @@
 #include "aplicacion.h"
 
 bool startGame = false;
+uint32_t victorias1 = 0;
+uint32_t victorias2 = 0;
 
 void game4enLinea(void)
 {
@@ -10,7 +12,21 @@ void game4enLinea(void)
 
 	static uint8_t filaAux = 0;
 
-	//Para el caso del reset
+	//Cuando se oprime el reset y está iniciado el juego
+	if(g_in0 && startGame)
+	{
+		startGame = false;
+		resetVictorias();
+
+		tablero.limpiarTablero();
+		tablero.setColumnaActual(0);
+		tablero.ocuparFila(0, 2);
+		matriz.show();
+
+		uart0->Transmit("F");
+	}
+
+	//Para el caso del reset (incluye el if anterior)
 	if(!startGame)
 		estado = ESPERA;
 
@@ -24,6 +40,7 @@ void game4enLinea(void)
 		}
 		if(startGame == true)	//Se cambia desde la comunicación o desde el if de arriba
 		{
+			resetVictorias();
 			resetGame();
 			estado = JUGADOR;
 		}
@@ -96,8 +113,17 @@ void game4enLinea(void)
 				if (tablero.checkWinner())
 				{
 					tablero.llenarTablero();
+
 					dato = tablero.getPlayer() + 48;	//Suma 48 para enviar el número como caracter ASCII
 					uart0->Transmit(&dato,1);	//Envía para incrementar el contador de victorias
+
+					if(tablero.getPlayer())
+						victorias1++;
+					else
+						victorias2++;
+
+					Display->Set(victorias1, DSP1);
+					Display->Set(victorias2, DSP0);
 
 					t = TIEMPO_VICTORIA;
 					estado = VICTORIA;
@@ -121,6 +147,7 @@ void game4enLinea(void)
 		}
 		break;
 	default:
+		resetVictorias();
 		resetGame();
 		estado = JUGADOR;
 		break;
@@ -134,4 +161,13 @@ void resetGame(void)
 	tablero.ocuparFila(0, 2);									//Llena toda la primer fila en blanco
 	tablero.ocuparCasillero(0, tablero.getColumnaActual());
 	matriz.show();
+}
+
+void resetVictorias(void)
+{
+	victorias1 = 0;
+	victorias2 = 0;
+
+	Display->Set(0, DSP0);
+	Display->Set(0, DSP1);
 }

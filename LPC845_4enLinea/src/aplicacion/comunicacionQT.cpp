@@ -73,13 +73,18 @@ void comunicacionQT(void)
 		case 83:	//S (startGame)
 			startGame = true;
 			break;
-		//START INTERFAZ
+		//RESET INTERFAZ
 		case 70:	//F (Reset)
 			startGame = false;
+			resetVictorias();
 			tablero.limpiarTablero();
 			tablero.setColumnaActual(0);
 			tablero.ocuparFila(0, 2);
 			matriz.show();
+			break;
+		//RESET VICTORIAS
+		case 90:	//Z (Resetear vicorias)
+			resetVictorias();
 			break;
 		default:
 			button = BUTTON_ERROR;

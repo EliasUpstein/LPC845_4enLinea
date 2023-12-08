@@ -1,0 +1,5 @@
+../src/Modulos/09-display_de_segmentos/09C-display/digito.cpp:55:6:bool Digito::Set(uint16_t)	16	static
+../src/Modulos/09-display_de_segmentos/09C-display/digito.cpp:84:9:uint8_t Digito::Get()	16	static
+../src/Modulos/09-display_de_segmentos/09C-display/digito.cpp:89:6:void Digito::Clr()	16	static
+../src/Modulos/09-display_de_segmentos/09C-display/digito.cpp:94:1:Digito::~Digito()	16	static
+../src/Modulos/09-display_de_segmentos/09C-display/digito.cpp:94:1:virtual Digito::~Digito()	16	static

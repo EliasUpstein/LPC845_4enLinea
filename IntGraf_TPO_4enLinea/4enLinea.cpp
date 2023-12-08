@@ -23,7 +23,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::begining()
 {
-    on_Rein_Cont_clicked();
+    ui->Cont_Jug_1->display(0);
+    ui->Cont_Jug_2->display(0);
     Aux = ui->Colores_Jug_1->count();
     for(int i = 0; i < Aux; i++){
         ui->Colores_Jug_1->removeItem(0);
@@ -358,6 +359,11 @@ void MainWindow::serial_read()
             ui->Movimiento->show();
             ui->Contador->show();
             ui->Reiniciar_Juego->show();
+        }else if(data.toStdString() == "F"){
+            begining();
+            ui->groupBoxConex->hide();
+            ui->Conf_Color_Jug_1->show();
+            ui->Conf_Color_Jug_2->show();
         }else{
             ui->Cont_Jug_1->display(0);
             ui->Cont_Jug_2->display(0);
@@ -367,8 +373,10 @@ void MainWindow::serial_read()
 
 void MainWindow::on_Rein_Cont_clicked()
 {
+    serial->write("Z"); //envio Reiniciar contadores
     ui->Cont_Jug_1->display(0);
     ui->Cont_Jug_2->display(0);
+    
 }
 
 void MainWindow::on_Mov_Der_clicked()
