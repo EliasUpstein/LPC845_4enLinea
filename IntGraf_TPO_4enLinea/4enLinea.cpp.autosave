@@ -369,6 +369,7 @@ void MainWindow::on_Rein_Cont_clicked()
 {
     ui->Cont_Jug_1->display(0);
     ui->Cont_Jug_2->display(0);
+    
 }
 
 void MainWindow::on_Mov_Der_clicked()
