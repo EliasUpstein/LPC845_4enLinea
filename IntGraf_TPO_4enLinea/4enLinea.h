@@ -16,12 +16,10 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
-    void begining();
 
 private slots:
-    void on_Comienzo_Juego_clicked();
-
     void on_Rein_Cont_clicked();
 
     void on_Mov_Izq_clicked();
@@ -36,10 +34,19 @@ private slots:
 
     void serial_read();
 
+    void on_Conf_Color_Jug_1_clicked();
+
+    void on_Conf_Color_Jug_2_clicked();
+
+    void on_ConectarBoton_clicked();
+
+    void on_Comienzo_Juego_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *serial;
     QString portname;
-    void LPC_Init();
+    void enumerarPuertos();
+    void begining();
 };
 #endif // MAINWINDOW_H
