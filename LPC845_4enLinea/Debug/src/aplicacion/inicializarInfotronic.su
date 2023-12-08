@@ -81,6 +81,6 @@ e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win3
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\new_allocator.h:210:7:constexpr std::__new_allocator<_Tp>::size_type std::__new_allocator<_Tp>::_M_max_size() const [with _Tp = gpio*]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\new_allocator.h:167:7:std::__new_allocator<_Tp>::size_type std::__new_allocator<_Tp>::max_size() const [with _Tp = gpio*]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:903:7:std::__cxx11::list<_Tp, _Alloc>::~list() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
-../src/aplicacion/inicializarInfotronic.cpp:91:1:void __static_initialization_and_destruction_0(int, int)	32	static
+../src/aplicacion/inicializarInfotronic.cpp:95:1:void __static_initialization_and_destruction_0(int, int)	32	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_vector.h:728:7:std::vector<_Tp, _Alloc>::~vector() [with _Tp = gpio*; _Alloc = std::allocator<gpio*>]	24	static
-../src/aplicacion/inicializarInfotronic.cpp:91:1:cpp)	8	static
+../src/aplicacion/inicializarInfotronic.cpp:95:1:cpp)	8	static

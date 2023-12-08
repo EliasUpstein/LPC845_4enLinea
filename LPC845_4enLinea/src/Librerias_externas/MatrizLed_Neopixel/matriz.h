@@ -8,6 +8,8 @@
 #define PORT 0
 #define PIN 29
 
+#define INTENSIDAD 100
+
 #define DELAY_ASM __asm volatile("nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;");
 
 class MatrizLed

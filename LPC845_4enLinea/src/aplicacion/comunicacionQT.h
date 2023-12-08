@@ -3,6 +3,10 @@
 
 #include "inicializarInfotronic.h"
 
+#define BUTTON_ERROR 255
+
 extern uint8_t button;
+
+void comunicacionQT(void);
 
 #endif

@@ -28,7 +28,7 @@ teclado *Teclado;
 gpio *rst = (new gpio ( gpio::port0 ,  18 , gpio::pushpull ,  gpio::output , gpio::high )); // RST
 gpio *clk = (new gpio ( gpio::port0 ,  19 , gpio::pushpull ,  gpio::output , gpio::high )); // CLK
 
-gpio *scn0 = new gpio ( gpio::port0 ,  27 , gpio::pushpull ,  gpio::output , gpio::high );
+//gpio *scn0 = new gpio ( gpio::port0 ,  27 , gpio::pushpull ,  gpio::output , gpio::high );
 gpio *scn1 = new gpio ( gpio::port0 ,  28 , gpio::pushpull ,  gpio::output , gpio::high );
 
 gpio *ret0 = new gpio ( gpio::port0 , 26 , gpio::pullup ,  gpio::input , gpio::low );
@@ -60,7 +60,7 @@ void InicializarInfotronic ( void )
 	Inic_OSC();
 
 	// ## TECLADO ####################################################################################
-	scn.push_back( scn0 );
+//	scn.push_back( scn0 );
 	scn.push_back( scn1 );
 
 	ret.push_back( ret0 );
@@ -88,4 +88,8 @@ void InicializarInfotronic ( void )
 
 	SysTick_CallBack_Install( systick_callback );
 	Inicializar_SysTick( FREQ_SYSTICK );
+
+	tablero.limpiarTablero();
+	tablero.setColumnaActual(0);
+	matriz.show();
 }
