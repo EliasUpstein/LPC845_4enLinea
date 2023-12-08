@@ -18,10 +18,14 @@ using namespace std;
 #include "flash.h"
 
 #include "gpio.h"
+#include "digital_inputs.h"
 #include <digital_outputs.h>
 #include "timer.h"
 #include "teclado.h"
 #include "uart.h"
+#include "I4017.h"
+#include "I4511.h"
+#include "display7Segmentos.h"
 
 #include "matriz.h"
 #include "colors.h"
@@ -38,9 +42,15 @@ using namespace std;
 //extern DigitalOutputs g_out1 ;
 //extern DigitalOutputs g_out2 ;
 
+//!<	ENTRADAS DIGITALES
+extern DigitalInputs 	g_in0 ;
+
 //!<	TECLADO
 extern teclado *Teclado;
 extern uint8_t tecla;
+
+//!<    DISPLAY
+extern Display7Segmentos *Display;
 
 // 		UART
 extern uart *uart0;

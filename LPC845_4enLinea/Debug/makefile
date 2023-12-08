@@ -14,9 +14,15 @@ RM := rm -rf
 -include src/firmware/subdir.mk
 -include src/aplicacion/subdir.mk
 -include src/Modulos/12-USART/subdir.mk
+-include src/Modulos/09-display_de_segmentos/09C-display/subdir.mk
+-include src/Modulos/09-display_de_segmentos/09B-segmentos/segmentos-interfaz/subdir.mk
+-include src/Modulos/09-display_de_segmentos/09B-segmentos/subdir.mk
+-include src/Modulos/09-display_de_segmentos/09A-barrido/barrido-interfaz/subdir.mk
+-include src/Modulos/09-display_de_segmentos/09A-barrido/subdir.mk
 -include src/Modulos/08-teclado/subdir.mk
 -include src/Modulos/06-timer/subdir.mk
 -include src/Modulos/05-SalidasDigitales/subdir.mk
+-include src/Modulos/04-EntradasDigitales/subdir.mk
 -include src/Modulos/03-callback/subdir.mk
 -include src/Modulos/02-gpio/subdir.mk
 -include src/Librerias_externas/Tablero/subdir.mk

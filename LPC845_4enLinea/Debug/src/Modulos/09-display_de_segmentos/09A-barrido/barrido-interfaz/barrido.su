@@ -1,0 +1,3 @@
+../src/Modulos/09-display_de_segmentos/09A-barrido/barrido-interfaz/barrido.cpp:43:1:Barrido::Barrido()	16	static
+../src/Modulos/09-display_de_segmentos/09A-barrido/barrido-interfaz/barrido.cpp:48:1:Barrido::~Barrido()	16	static
+../src/Modulos/09-display_de_segmentos/09A-barrido/barrido-interfaz/barrido.cpp:48:1:virtual Barrido::~Barrido()	16	static
