@@ -24,6 +24,7 @@ using namespace std;
 #include "uart.h"
 
 #include "matriz.h"
+#include "colors.h"
 #include "tablero.h"
 
 #include "aplicacion.h"

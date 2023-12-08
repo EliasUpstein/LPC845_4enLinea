@@ -3,6 +3,7 @@
 
 #include "tipos.h"
 #include "matriz.h"
+#include "colors.h"
 
 class Tablero
 {
@@ -33,8 +34,14 @@ public:
 
 	Led_WS2812B getColor1(void);
 	void setColor1(uint8_t r, uint8_t g, uint8_t b);
+	void setColor1(Led_WS2812B colour);
 	Led_WS2812B getColor2(void);
 	void setColor2(uint8_t r, uint8_t g, uint8_t b);
+	void setColor2(Led_WS2812B colour);
+
+	Led_WS2812B getColor(uint8_t player);
+	void setColor(uint8_t player, uint8_t r, uint8_t g, uint8_t b);
+	void setColor(uint8_t player, Led_WS2812B colour);
 
 	void setPlayer(uint8_t player);
 	uint8_t getPlayer(void);

@@ -11,7 +11,9 @@ src/Librerias_externas/Tablero/tablero.o \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/uart.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/ComunicacionAsincronica.h \
  C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/LPC845.h \
- C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h
+ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h \
+ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/colors.h \
+ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h
 ../src/Librerias_externas/Tablero/tablero.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h:
@@ -23,3 +25,5 @@ C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Modulos\12-USART/ComunicacionAsincronica.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/LPC845.h:
 C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src/tipos.h:
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/colors.h:
+C:\Users\Casa\Desktop\Eli\Archivos\Xpresso\LPC845_4enLinea\src\Librerias_externas\MatrizLed_Neopixel/matriz.h:
