@@ -16,9 +16,13 @@ private:
 	uint8_t m_jugadorActual;
 	uint8_t m_columnaActual;
 
-	enum player{JUGADOR1, JUGADOR2, LIBRE};
 public:
+	enum player{JUGADOR1, JUGADOR2, LIBRE};
+
 	Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz);
+
+	void iniciarTablero(void);
+
 	void limpiarTablero(void);
 	void llenarTablero(void);
 	void llenarTablero(uint8_t player);

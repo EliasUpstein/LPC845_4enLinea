@@ -22,52 +22,52 @@ void comunicacionQT(void)
 			break;
 		//COLORES INTERFAZ
 		case 82:	//R (rojo, jugador 1)
-			tablero.setColor1(ROJO);
+			actualizarJugador(Tablero::JUGADOR1, nROJO);
 			break;
 		case 66:	//B (azul, jugador 1)
-			tablero.setColor1(AZUL);
-			break;
-		case 89:	//Y (amarillo, jugador 1)
-			tablero.setColor1(AMARILLO);
+			actualizarJugador(Tablero::JUGADOR1, nAZUL);
 			break;
 		case 71:	//G (verde, jugador 1)
-			tablero.setColor1(VERDE);
+			actualizarJugador(Tablero::JUGADOR1, nVERDE);
+			break;
+		case 89:	//Y (amarillo, jugador 1)
+			actualizarJugador(Tablero::JUGADOR1, nAMARILLO);
 			break;
 		case 80:	//P (rosa, jugador 1)
-			tablero.setColor1(ROSA);
+			actualizarJugador(Tablero::JUGADOR1, nROSA);
 			break;
 		case 76:	//L (celeste, jugador 1)
-			tablero.setColor1(CELESTE);
+			actualizarJugador(Tablero::JUGADOR1, nCELESTE);
 			break;
 		case 86:	//V (violeta, jugador 1)
-			tablero.setColor1(VIOLETA);
+			actualizarJugador(Tablero::JUGADOR1, nVIOLETA);
 			break;
 		case 79:	//O (naranja, jugador 1)
-			tablero.setColor1(NARANJA);
+			actualizarJugador(Tablero::JUGADOR1, nNARANJA);
 			break;
 		case 114:	//r (rojo, jugador 2)
-			tablero.setColor2(ROJO);
+			actualizarJugador(Tablero::JUGADOR2, nROJO);
 			break;
 		case 98:	//b (azul, jugador 2)
-			tablero.setColor2(AZUL);
-			break;
-		case 121:	//y (amarillo, jugador 2)
-			tablero.setColor2(AMARILLO);
+			actualizarJugador(Tablero::JUGADOR2, nAZUL);
 			break;
 		case 103:	//g (verde, jugador 2)
-			tablero.setColor2(VERDE);
+			actualizarJugador(Tablero::JUGADOR2, nVERDE);
+			break;
+		case 121:	//y (amarillo, jugador 2)
+			actualizarJugador(Tablero::JUGADOR2, nAMARILLO);
 			break;
 		case 112:	//p (rosa, jugador 2)
-			tablero.setColor2(ROSA);
+			actualizarJugador(Tablero::JUGADOR2, nROSA);
 			break;
 		case 108:	//l (celeste, jugador 2)
-			tablero.setColor2(CELESTE);
+			actualizarJugador(Tablero::JUGADOR2, nCELESTE);
 			break;
 		case 118:	//v (violeta, jugador 2)
-			tablero.setColor2(VIOLETA);
+			actualizarJugador(Tablero::JUGADOR2, nVIOLETA);
 			break;
 		case 111:	//o (naranja, jugador 2)
-			tablero.setColor2(NARANJA);
+			actualizarJugador(Tablero::JUGADOR2, nNARANJA);
 			break;
 		//START INTERFAZ
 		case 83:	//S (startGame)
@@ -75,12 +75,7 @@ void comunicacionQT(void)
 			break;
 		//RESET INTERFAZ
 		case 70:	//F (Reset)
-			startGame = false;
-			resetVictorias();
-			tablero.limpiarTablero();
-			tablero.setColumnaActual(0);
-			tablero.ocuparFila(0, 2);
-			matriz.show();
+			initGame();
 			break;
 		//RESET VICTORIAS
 		case 90:	//Z (Resetear vicorias)
@@ -91,6 +86,6 @@ void comunicacionQT(void)
 			break;
 		}
 	}
-	else						//Cuando no recibe nada recetea el button
+	else						//Cuando no recibe nada resetea el button
 		button = BUTTON_ERROR;
 }

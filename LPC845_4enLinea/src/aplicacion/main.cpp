@@ -10,6 +10,7 @@
 int  main(void)
 {
 	InicializarInfotronic();
+	initGame();
 
 	while ( 1 ){
 		tecla = Teclado->GetKey( );

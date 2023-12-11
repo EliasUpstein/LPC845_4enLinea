@@ -130,11 +130,4 @@ void InicializarInfotronic ( void )
 
 	SysTick_CallBack_Install( systick_callback );
 	Inicializar_SysTick( FREQ_SYSTICK );
-
-	resetVictorias();
-
-	tablero.limpiarTablero();
-	tablero.setColumnaActual(0);
-	tablero.ocuparFila(0, 2);	//Llena toda la primer fila en blanco
-	matriz.show();
 }

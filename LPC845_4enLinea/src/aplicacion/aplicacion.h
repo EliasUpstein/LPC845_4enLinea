@@ -18,9 +18,14 @@
 
 extern bool startGame;
 
+extern bool color1Flag;
+extern bool color2Flag;
+
 void game4enLinea(void);
-void resetGame(void);
+void newGame(void);
 void resetVictorias(void);
+void actualizarJugador(uint8_t player, uint8_t ncolor);
+void initGame(void);
 
 
 #endif

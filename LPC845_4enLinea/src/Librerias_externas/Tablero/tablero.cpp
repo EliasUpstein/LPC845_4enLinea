@@ -7,8 +7,8 @@ Tablero::Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz)
 	m_columnas = columnas;
 	m_jugadorActual = JUGADOR1;
 	m_columnaActual = 0;
-	color[JUGADOR1] = AZUL;
-	color[JUGADOR2] = ROJO;
+	color[JUGADOR1] = ROJO;
+	color[JUGADOR2] = AZUL;
 	color[LIBRE] = BLANCO;
 
 	// Declarar la matriz utilizando new
@@ -16,6 +16,15 @@ Tablero::Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz)
 	// Para cada fila, crear un array de int (columnas)
 	for (int i = 0; i < filas; ++i)
 		m_tablero[i] = new uint8_t[columnas];
+}
+
+void Tablero::iniciarTablero(void)
+{
+	limpiarTablero();
+	setColumnaActual(0);
+	ocuparFila(0, LIBRE);				//Llena la primer fila en blanco a modo cursor
+	ocuparCasillero(0,0,JUGADOR1);		//Coloca el color del primer jugador en el primer led de la primer fila
+	ocuparCasillero(0,7,JUGADOR2);		//Coloca el color del segundo jugador en el último led de la primer fila
 }
 
 void Tablero::limpiarTablero(void)
