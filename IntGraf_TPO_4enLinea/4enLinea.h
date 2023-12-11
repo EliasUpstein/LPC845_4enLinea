@@ -48,8 +48,7 @@ private:
     Ui::MainWindow *ui;
     QSerialPort *serial;
     QString portname;
-    QStringList Colors_1;
-    QStringList Colors_2;
+    QStringList Colors;
     int Aux;
     void enumerarPuertos();
     void begining();

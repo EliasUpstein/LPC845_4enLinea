@@ -5,8 +5,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 {
     ui->setupUi(this);
     serial = NULL;
-    Colors_1 = (QStringList() << "Rojo" << "Azul" << "Verde" << "Amarillo" << "Rosa" << "Celeste" << "Violeta" << "Naranja");
-    Colors_2 = (QStringList() << "Azul" << "Rojo" << "Verde" << "Amarillo" << "Rosa" << "Celeste" << "Violeta" << "Naranja");
+    Colors = (QStringList() << "Rojo" << "Azul" << "Verde" << "Amarillo" << "Rosa" << "Celeste" << "Violeta" << "Naranja");
     Aux = 0;
     begining();
     enumerarPuertos();
@@ -30,8 +29,9 @@ void MainWindow::begining()
         ui->Colores_Jug_1->removeItem(0);
         ui->Colores_Jug_2->removeItem(0);
     }
-    ui->Colores_Jug_1->addItems(Colors_1);
-    ui->Colores_Jug_2->addItems(Colors_2);
+    ui->Colores_Jug_1->addItems(Colors);
+    ui->Colores_Jug_2->addItems(Colors);
+    ui->Colores_Jug_2->setCurrentIndex(1);
     ui->Movimiento->hide();
     ui->Contador->hide();
     ui->Reiniciar_Juego->hide();
@@ -131,14 +131,14 @@ void MainWindow::on_Conf_Color_Jug_1_clicked()
     if(serial->isWritable()){
         switch(ui->Colores_Jug_1->currentIndex()){
             case 0:
-                if(ui->Conf_Color_Jug_2->isHidden() && ui->Colores_Jug_2->currentIndex() == 1)
+                if(ui->Conf_Color_Jug_2->isHidden() && ui->Colores_Jug_2->currentIndex() == 0)
                 {
                     serial->write("B"); //envio la B de BLUE
                     ui->Azul_1->show();
                 }else{
                     serial->write("R"); //envio la R de RED
                     ui->Rojo_1->show();
-                    ui->Colores_Jug_2->removeItem(1);//Cancelo la posibilidad del color Rojo en el jugador 2
+                    ui->Colores_Jug_2->removeItem(0);//Cancelo la posibilidad del color Rojo en el jugador 2
                 }
                 break;
             case 1:
@@ -149,7 +149,7 @@ void MainWindow::on_Conf_Color_Jug_1_clicked()
                 }else{
                     serial->write("B"); //envio la B de BLUE
                     ui->Azul_1->show();
-                    ui->Colores_Jug_2->removeItem(0);//Cancelo la posibilidad del color Azul en el jugador 2
+                    ui->Colores_Jug_2->removeItem(1);//Cancelo la posibilidad del color Azul en el jugador 2
                 }
                 break;
             case 2:
@@ -234,29 +234,29 @@ void MainWindow::on_Conf_Color_Jug_2_clicked()
 {
     if(serial->isWritable()){
         switch(ui->Colores_Jug_2->currentIndex()){
-            case 1: //Index del color Rojo en el jugador 2
-                if(ui->Conf_Color_Jug_1->isHidden() && ui->Colores_Jug_1->currentIndex() <= 1)
+            case 0:
+                if(ui->Conf_Color_Jug_1->isHidden() && ui->Colores_Jug_1->currentIndex() == 0)
                 {
-                    serial->write("g"); //envio la g de GREEN
-                    ui->Verde_2->show();
+                    serial->write("b"); //envio la b de BLUE
+                    ui->Azul_2->show();
                 }else{
                     serial->write("r"); //envio la r de RED
                     ui->Rojo_2->show();
                     ui->Colores_Jug_1->removeItem(0);//Cancelo la posibilidad del color Rojo en el jugador 1
                 }
                 break;
-            case 0: //Index del color Azul en el jugador 2
-                if(ui->Conf_Color_Jug_1->isHidden() && ui->Colores_Jug_1->currentIndex() == 1)
+            case 1:
+                if(ui->Conf_Color_Jug_1->isHidden() && ui->Colores_Jug_1->currentIndex() <= 1)
                 {
-                    serial->write("r"); //envio la r de RED
-                    ui->Rojo_2->show();
+                    serial->write("g"); //envio la g de GREEN
+                    ui->Verde_2->show();
                 }else{
                     serial->write("b"); //envio la b de BLUE
                     ui->Azul_2->show();
                     ui->Colores_Jug_1->removeItem(1);//Cancelo la posibilidad del color Azul en el jugador 1
                 }
                 break;
-            case 2: //Index del color Verde en el jugador 2
+            case 2:
                 if(ui->Conf_Color_Jug_1->isHidden() && ui->Colores_Jug_1->currentIndex() <= 2)
                 {
                     serial->write("y"); //envio la y de YELLOW
