@@ -3,7 +3,7 @@
 
 #include "inicializarInfotronic.h"
 
-#define BUTTON_ERROR 255
+#define BUTTON_ERROR 255		//Valor de button cuando no se presiona nada o hay error
 
 extern uint8_t button;
 

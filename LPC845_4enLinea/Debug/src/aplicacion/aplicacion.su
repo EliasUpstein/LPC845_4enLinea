@@ -1,6 +1,7 @@
-../src/aplicacion/aplicacion.cpp:12:6:void game4enLinea()	24	static
-../src/aplicacion/aplicacion.cpp:194:6:void newGame()	8	static
-../src/aplicacion/aplicacion.cpp:203:6:void resetVictorias()	8	static
-../src/aplicacion/aplicacion.cpp:212:6:void actualizarJugador(uint8_t, uint8_t)	24	static
-../src/aplicacion/aplicacion.cpp:248:1:void __static_initialization_and_destruction_0(int, int)	24	static
-../src/aplicacion/aplicacion.cpp:248:1:cpp)	8	static
+../src/aplicacion/aplicacion.cpp:16:6:void game4enLinea()	24	static
+../src/aplicacion/aplicacion.cpp:192:6:void initGame()	8	static
+../src/aplicacion/aplicacion.cpp:203:6:void newGame()	8	static
+../src/aplicacion/aplicacion.cpp:213:6:void resetVictorias()	8	static
+../src/aplicacion/aplicacion.cpp:225:6:void actualizarJugador(uint8_t, uint8_t)	24	static
+../src/aplicacion/aplicacion.cpp:260:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../src/aplicacion/aplicacion.cpp:260:1:cpp)	8	static

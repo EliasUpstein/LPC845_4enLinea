@@ -37,11 +37,6 @@ using namespace std;
 /***********************************************************************************************************************************
  *** VARIABLES GLOBALES
  **********************************************************************************************************************************/
-//!<	SALIDAS DIGITALES
-//extern DigitalOutputs g_out0 ;
-//extern DigitalOutputs g_out1 ;
-//extern DigitalOutputs g_out2 ;
-
 //!<	ENTRADAS DIGITALES
 extern DigitalInputs 	g_in0 ;
 

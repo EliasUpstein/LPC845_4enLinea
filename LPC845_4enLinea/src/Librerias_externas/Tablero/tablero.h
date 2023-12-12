@@ -5,12 +5,13 @@
 #include "matriz.h"
 #include "colors.h"
 
+//Abstracción de un tablero de juego
 class Tablero
 {
 private:
-	uint8_t** m_tablero;
+	uint8_t** m_tablero;			//Matriz de datos del tablero
 	uint8_t m_filas, m_columnas;
-	MatrizLed& m_matriz;
+	MatrizLed& m_matriz;			//Referencia a la matriz de leds que visualiza al tablero
 	Led_WS2812B color[3];
 
 	uint8_t m_jugadorActual;

@@ -1,7 +1,15 @@
 #include "comunicacionQT.h"
 
-uint8_t button = BUTTON_ERROR;
+uint8_t button = BUTTON_ERROR;		//Variable que almacena el botón presionado en la GUI
 
+/*Si recibe un dato por el puerto serie, realiza la acción correspondiente.
+	Recibe '0', '1' y '2' para los botones "IZQUIERDA", "DERECHA" Y "CONFIRMAR".
+	Recibe 'R', 'B', 'G', 'Y', 'P', 'L', 'V', 'O' para cambier el color de un jugador,
+	si se recibe en mayúscula afectan al jugador 1, en minúscula al jugador 2.
+	Recibe 'S' para iniciar el juego
+	Recibe 'F' para reiniciar
+	Recibe 'Z' para resetear los contadores de victoria
+*/
 void comunicacionQT(void)
 {
 	static uint8_t dato;
@@ -86,6 +94,6 @@ void comunicacionQT(void)
 			break;
 		}
 	}
-	else						//Cuando no recibe nada resetea el button
+	else						//Cuando no recibe nada resetea el BUTTON_ERROR
 		button = BUTTON_ERROR;
 }

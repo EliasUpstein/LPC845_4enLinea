@@ -1,3 +1,7 @@
 *.pro.user
 
 build-IntGraf_TPO_4enLinea-*/
+
+Debug/*
+
+LPC845_4enLinea LinkServer Debug

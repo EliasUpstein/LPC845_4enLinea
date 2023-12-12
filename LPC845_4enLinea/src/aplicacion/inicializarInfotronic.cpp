@@ -31,7 +31,6 @@ teclado *Teclado;
 gpio *rst = (new gpio ( gpio::port0 ,  18 , gpio::pushpull ,  gpio::output , gpio::high )); // RST
 gpio *clk = (new gpio ( gpio::port0 ,  19 , gpio::pushpull ,  gpio::output , gpio::high )); // CLK
 
-//gpio *scn0 = new gpio ( gpio::port0 ,  27 , gpio::pushpull ,  gpio::output , gpio::high );
 gpio *scn1 = new gpio ( gpio::port0 ,  28 , gpio::pushpull ,  gpio::output , gpio::high );
 
 gpio *ret0 = new gpio ( gpio::port0 , 26 , gpio::pullup ,  gpio::input , gpio::low );
@@ -54,7 +53,6 @@ gpio *bcdB = (new gpio ( gpio::port0 ,  22 , gpio::pushpull ,  gpio::output , gp
 gpio *bcdC = (new gpio ( gpio::port0 ,  21 , gpio::pushpull ,  gpio::output , gpio::high ));
 gpio *bcdD = (new gpio ( gpio::port0 ,  20 , gpio::pushpull ,  gpio::output , gpio::high ));
 gpio *dp   = (new gpio ( gpio::port0 ,  12 , gpio::pushpull ,  gpio::output , gpio::high ));
-
 
 // 		UART
 uart *uart0;
@@ -79,7 +77,6 @@ void InicializarInfotronic ( void )
 	Inic_OSC();
 
 	// ## TECLADO ####################################################################################
-//	scn.push_back( scn0 );
 	scn.push_back( scn1 );
 
 	ret.push_back( ret0 );
@@ -112,7 +109,7 @@ void InicializarInfotronic ( void )
 	//                               agrupados segmentos   barrido    correccion       codificacion
 	Display = new Display7Segmentos ( grupos ,  i4511 ,      i4017 , PosicionRelativa , Digito::BCD );
 
-	// salida a RS232 - terminal MCUXpresso
+	// uart - Comunicación con la GUI
 	uart0 = new uart(
 						0 , 				// PortTx
 			            25, 				// Pin Tx
@@ -126,7 +123,7 @@ void InicializarInfotronic ( void )
 						64 );				// tamaño de buffer de Tx
 	// ###############################################################################################
 
-	setFlashWaitStates(0);
+	setFlashWaitStates(0);			//setea los Wait States de la flash en 0 para el uso de la matriz led
 
 	SysTick_CallBack_Install( systick_callback );
 	Inicializar_SysTick( FREQ_SYSTICK );

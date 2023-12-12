@@ -7,7 +7,7 @@ Tablero::Tablero(uint8_t filas, uint8_t columnas, MatrizLed& matriz)
 	m_columnas = columnas;
 	m_jugadorActual = JUGADOR1;
 	m_columnaActual = 0;
-	color[JUGADOR1] = ROJO;
+	color[JUGADOR1] = ROJO;		//Colores por defecto
 	color[JUGADOR2] = AZUL;
 	color[LIBRE] = BLANCO;
 
@@ -40,6 +40,7 @@ void Tablero::limpiarTablero(void)
     m_matriz.clear();
 }
 
+//Llena el tablero con el color del jugador actual
 void Tablero::llenarTablero(void)
 {
 	for (int i = 0; i < m_filas; i++)
@@ -53,6 +54,7 @@ void Tablero::llenarTablero(void)
 	m_matriz.setAllLeds(color[m_jugadorActual]);
 }
 
+//LLena el tablero con el color del jugador que recibe
 void Tablero::llenarTablero(uint8_t player)
 {
 	if(player < 3)
@@ -77,6 +79,7 @@ void Tablero::liberarCasillero(uint8_t fila, uint8_t columna)
 	}
 }
 
+//Ocupar el casillero con el color del jugador actual
 void Tablero::ocuparCasillero(uint8_t fila, uint8_t columna)
 {
 	if((fila < m_filas) && (columna < m_columnas))
@@ -86,6 +89,7 @@ void Tablero::ocuparCasillero(uint8_t fila, uint8_t columna)
 	}
 }
 
+//Ocupar el casillero con el color del jugador que recibe
 void Tablero::ocuparCasillero(uint8_t fila, uint8_t columna, uint8_t player)
 {
 	if((fila < m_filas) && (columna < m_columnas) && (player < 3))

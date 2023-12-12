@@ -1,17 +1,17 @@
-../src/Librerias_externas/MatrizLed_Neopixel/Led_WS2812B.h:13:5:Led_WS2812B::operator uint32_t() const	16	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:3:1:MatrizLed::MatrizLed(uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:12:1:MatrizLed::MatrizLed(uart*, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:21:13:static Led_WS2812B MatrizLed::color(uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:32:6:void MatrizLed::setLed(uint8_t, Led_WS2812B)	24	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:38:6:void MatrizLed::setLed(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:43:6:void MatrizLed::setLeds(uint8_t, uint8_t, Led_WS2812B)	40	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:66:6:void MatrizLed::setLeds(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:71:6:void MatrizLed::setAllLeds(Led_WS2812B)	16	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:76:6:void MatrizLed::setAllLeds(uint8_t, uint8_t, uint8_t)	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:81:6:void MatrizLed::clear()	24	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:86:6:void MatrizLed::clearLed(uint8_t)	24	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:91:1:MatrizLed::~MatrizLed()	16	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:98:6:void MatrizLed::show()	16	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:106:6:void MatrizLed::showUART()	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:125:6:void MatrizLed::showGPIO()	32	static
-../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:152:6:void MatrizLed::send24Bits(uint32_t)	16	static
+../src/Librerias_externas/MatrizLed_Neopixel/Led_WS2812B.h:15:5:Led_WS2812B::operator uint32_t() const	16	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:4:1:MatrizLed::MatrizLed(uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:14:1:MatrizLed::MatrizLed(uart*, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:24:13:static Led_WS2812B MatrizLed::color(uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:35:6:void MatrizLed::setLed(uint8_t, Led_WS2812B)	24	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:41:6:void MatrizLed::setLed(uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:46:6:void MatrizLed::setLeds(uint8_t, uint8_t, Led_WS2812B)	40	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:69:6:void MatrizLed::setLeds(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:74:6:void MatrizLed::setAllLeds(Led_WS2812B)	16	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:79:6:void MatrizLed::setAllLeds(uint8_t, uint8_t, uint8_t)	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:84:6:void MatrizLed::clear()	24	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:89:6:void MatrizLed::clearLed(uint8_t)	24	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:94:1:MatrizLed::~MatrizLed()	16	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:103:6:void MatrizLed::show()	16	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:113:6:void MatrizLed::showUART()	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:130:6:void MatrizLed::showGPIO()	32	static
+../src/Librerias_externas/MatrizLed_Neopixel/matriz.cpp:161:6:void MatrizLed::send24Bits(uint32_t)	16	static

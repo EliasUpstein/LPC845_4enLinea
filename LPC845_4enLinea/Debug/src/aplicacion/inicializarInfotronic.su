@@ -21,8 +21,8 @@ e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win3
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_vector.h:133:14:std::_Vector_base<gruposdedigitos*, std::allocator<gruposdedigitos*> >::_Vector_impl::~_Vector_impl()	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_vector.h:312:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = gruposdedigitos*; _Alloc = std::allocator<gruposdedigitos*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_vector.h:526:7:std::vector<_Tp, _Alloc>::vector() [with _Tp = gruposdedigitos*; _Alloc = std::allocator<gruposdedigitos*>]	16	static
-../src/aplicacion/inicializarInfotronic.cpp:71:6:void systick_callback()	24	static
-../src/aplicacion/inicializarInfotronic.cpp:77:6:void InicializarInfotronic()	72	static
+../src/aplicacion/inicializarInfotronic.cpp:69:6:void systick_callback()	24	static
+../src/aplicacion/inicializarInfotronic.cpp:75:6:void InicializarInfotronic()	72	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:455:2:std::__cxx11::_List_base<_Tp, _Alloc>::_List_impl::_List_impl() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\allocator.h:174:7:std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::_List_node<Callback*>]	16	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:574:7:std::__cxx11::_List_base<_Tp, _Alloc>::~_List_base() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
@@ -155,6 +155,6 @@ e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win3
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_algobase.h:486:5:_OI std::__copy_move_a2(_II, _II, _OI) [with bool _IsMove = false; _II = gruposdedigitos* const*; _OI = gruposdedigitos**]	24	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_algobase.h:420:2:static _Tp* std::__copy_move<_IsMove, true, std::random_access_iterator_tag>::__copy_m(const _Tp*, const _Tp*, _Tp*) [with _Tp = gruposdedigitos*; bool _IsMove = false]	32	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_list.h:903:7:std::__cxx11::list<_Tp, _Alloc>::~list() [with _Tp = Callback*; _Alloc = std::allocator<Callback*>]	16	static
-../src/aplicacion/inicializarInfotronic.cpp:138:1:void __static_initialization_and_destruction_0(int, int)	32	static
+../src/aplicacion/inicializarInfotronic.cpp:130:1:void __static_initialization_and_destruction_0(int, int)	32	static
 e:\programas\mcuxpressoide_11.8.0_1165\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.8.0.202306131047\tools\arm-none-eabi\include\c++\12.2.1\bits\stl_vector.h:728:7:std::vector<_Tp, _Alloc>::~vector() [with _Tp = gpio*; _Alloc = std::allocator<gpio*>]	24	static
-../src/aplicacion/inicializarInfotronic.cpp:138:1:cpp)	8	static
+../src/aplicacion/inicializarInfotronic.cpp:130:1:cpp)	8	static

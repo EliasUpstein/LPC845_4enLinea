@@ -1,23 +1,26 @@
 #include "matriz.h"
 
+//Constructor para GPIO
 MatrizLed::MatrizLed(uint8_t puerto, uint8_t bit, uint8_t nleds)
 {
 	out_matriz = new gpio(puerto, bit, gpio::pushpull, gpio::high, gpio::output);
 	m_uart = nullptr;
 	m_nleds = nleds;
-    matriz = new Led_WS2812B[nleds];
+    matriz = new Led_WS2812B[nleds];		//Declaración del vector de leds
     out_matriz->ClrPin();
 }
 
+//Constructor para controlar por comunicación serie
 MatrizLed::MatrizLed(uart* uart, uint8_t nleds)
 {
 	m_uart = uart;
 	out_matriz = nullptr;
     m_nleds = nleds;
     matriz = new Led_WS2812B[nleds];
-    m_uart->Transmit((void*)'z', 1);
+    m_uart->Transmit((void*)'z', 1);		//Apaga la matriz en la recepción
 }
 
+//Recibe las componentes r, g y b y devuelve la estructura led correspondiente
 Led_WS2812B MatrizLed::color(uint8_t r, uint8_t g, uint8_t b)
 {
 	Led_WS2812B led_aux;
@@ -42,9 +45,9 @@ void MatrizLed::setLed(uint8_t led, uint8_t r, uint8_t g, uint8_t b)
 
 void MatrizLed::setLeds(uint8_t first, uint8_t cant, Led_WS2812B color)
 {
-	uint16_t end;
+	uint16_t end;		//Variable para calcular el final del seteo
 
-	if (first >= m_nleds || first < 0)
+	if (first >= m_nleds || first < 0)	//Validación
 		return;
 
 	// Si se recibe 0, rellena hasta el final, sino chequea no excederse
@@ -53,7 +56,7 @@ void MatrizLed::setLeds(uint8_t first, uint8_t cant, Led_WS2812B color)
 	else
 	{
 		end = first + cant;
-		if (end > m_nleds)
+		if (end > m_nleds)		//Valida límite
 			end = m_nleds;
 	}
 
@@ -95,6 +98,8 @@ MatrizLed::~MatrizLed()
 	delete(matriz);
 }
 
+
+//Ejecuta la función correspondiente en caso de comunicar por GPIO o por Serie
 void MatrizLed::show(void)
 {
 	if(out_matriz != nullptr && m_uart == nullptr)
@@ -103,6 +108,8 @@ void MatrizLed::show(void)
 		showUART();
 }
 
+//Envía número de led y componente de cada color para todos los leds de la matriz
+//Según la velocidad del protocolo la comunicación es LENTA
 void MatrizLed::showUART(void)
 {
 	for(int i = 0; i < m_nleds; i++)
@@ -115,16 +122,14 @@ void MatrizLed::showUART(void)
 	return;
 }
 
-//////////////////////////Complicado
 
 /* Tiempo de comunicación promedio:
 
 1,25us (por bit) * 8 (por byte) * 3 (por led) = 30us por led
 30us * 64 (leds de nuestra matriz) = 1920us = 1.92 ms => aprox 2ms	*/
-
 void MatrizLed::showGPIO(void)
 {
-	volatile uint32_t interrupt_state;
+	volatile uint32_t interrupt_state;		//Almacena las interrupciones activas al momento del llamado
 
 	//Setea el wait states en 0 (programación defensiva en caso de que se haya cambiado este registro)
 	FLASH_CTRL->FLASHCFG = ((FLASH_CTRL->FLASHCFG)&~FLASH_CTRL_FLASHCFG_FLASHTIM_MASK) | 0x0;
@@ -149,6 +154,10 @@ void MatrizLed::showGPIO(void)
 	SysTick->CTRL |=  (0x1UL << 1);	    	//Activa interrupción del systick
 }
 
+//Envía bit a bit los 24 que recibe de data
+//Según el valor del bit, genera la temporazación correspondiente (datasheet)
+//Los 400ns se consumen en la propia ejecución del micro
+//Los 800ns se logran con un "delay" en assembler ("nop;")
 void MatrizLed::send24Bits(uint32_t data)
 {
 	//Bit 0

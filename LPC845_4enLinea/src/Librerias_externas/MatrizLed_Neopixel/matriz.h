@@ -5,9 +5,10 @@
 #include "gpio.h"
 #include "uart.h"
 
-#define PORT 0
+#define PORT 0		//Puerto y pin a conectar como gpio. Mejora a futuro eliminar defines para más versatilidad
 #define PIN 29
 
+//"Delay" necesario en Assembler para la correcta temporización de la información
 #define DELAY_ASM __asm volatile("nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;" "nop;");
 
 class MatrizLed
@@ -20,11 +21,11 @@ private:
 
 	void showGPIO(void);
 	void showUART(void);
-//	void send24Bits(uint32_t data, uint8_t port, uint8_t pin);
+//	void send24Bits(uint32_t data, uint8_t port, uint8_t pin);		//Mejora a implementar
 	void send24Bits(uint32_t data);
 
 public:
-	MatrizLed (uint8_t puerto, uint8_t bit, uint8_t nleds = 1);			//Constructor para comunicación propia
+	MatrizLed (uint8_t puerto, uint8_t bit, uint8_t nleds = 1);			//Constructor para comunicación por gpio
 	MatrizLed (uart* uart, uint8_t nleds = 1);							//Constructor para comunicación serie
 	static Led_WS2812B color(uint8_t r, uint8_t g, uint8_t b);
 	void setLed(uint8_t led, Led_WS2812B color);

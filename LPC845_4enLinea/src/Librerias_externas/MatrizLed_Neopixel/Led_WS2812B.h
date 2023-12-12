@@ -3,6 +3,8 @@
 
 #include "tipos.h"
 
+//Estructura para los leds del tipo GRB
+//En caso de utilizar otro tipo de led, cambiar el orden en la declaración y el casteo
 typedef struct
 {
     uint8_t b;
